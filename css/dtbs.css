@@ -28,6 +28,18 @@
 	background: #fff;
 }
 
+.information{
+	border-top: 1px solid #c1bdbd;
+	border-bottom: 1px solid #c1bdbd;
+	font-size: 90%;
+}
+.info_green{
+	color: green;
+}
+.commandline{
+	border-radius: 5px;
+	background: #DFEFFF;
+}
 /*текстовое оформление*/
 .f_n_table{
 	color: #AC78C7;

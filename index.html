@@ -30,25 +30,104 @@
 		<div class="row mt-2 pb-2 pt-2 mb-2 st">
 			<div class="col-3">
 				<ul class="nav col-12 col-md-auto mb-2 justify-content-left mb-md-0">
-        <li><a href="#" class="nav-link px-2 link-dark">History</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">Table</a></li>
-        <li><a href="#" class="nav-link px-2 link-danger">Connect</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">Таблицы</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">История</a></li>
+        <li><a href="#" class="nav-link px-2 link-danger">Настройки</a></li>
         <li><a href="#" class="nav-link px-2 link-dark">FAQs</a></li>
       </ul>
 			</div>
 			<div class="col-9">
 				<ul class="nav col-12 col-md-auto mb-2 justify-content-end mb-md-0">
-        <li><a href="#" class="nav-link px-2 link-dark">Home</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">Features</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">Pricing</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">FAQs</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">About</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">Создать таблицу</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">Импорт</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">Экспорт</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">Наборы таблиц</a></li>
       </ul>
 			</div>
 		</div>
 		<div class="main container-fluid">
 		<div class="row">
 			<div class="col-md-3 left_panel p-2">
+
+<!-- FAQs -->
+<h5 class="text-center">FAQs</h5>
+			<div class="list-group">
+
+			  <a href="#" class="list-group-item list-group-item-action">Принцип работы</a>
+
+			  <a href="#" class="list-group-item list-group-item-action text-end">Как подключиться к своей бд?</a>
+
+			  <a href="#" class="list-group-item list-group-item-action">Способы создания таблиц</a>
+
+			  <a href="#" class="list-group-item list-group-item-action">Редактирование таблиц</a>
+
+			  <a href="#" class="list-group-item list-group-item-action">История изменений</a>
+
+			  <a href="#" class="list-group-item list-group-item-action">Импорт бд</a>
+
+			  <a href="#" class="list-group-item list-group-item-action">Экспорт бд</a>
+
+			</div>
+
+
+
+<!-- CONNECT
+				<form name = "connect" action = "#" method = "post">
+					 <div class="mb-3">
+					    <label for="hostDB" class="form-label">Введите host</label>
+					    <input type="text" class="form-control" id="hostDB" name = "hostDB" aria-describedby="hostDbInfo">
+					    <div id="hostDbInfo" class="form-text">Возможно: localhost</div>
+					  </div>
+					 <div class="mb-3">
+					    <label for="nameDB" class="form-label">Имя базы данных</label>
+					    <input type="text" class="form-control" id="nameDB" name="nameDB"  aria-describedby="nameDbInfo">
+					    <div id="nameDbInfo" class="form-text">Введите имя базы данных</div>
+					  </div>
+					 <div class="mb-3">
+					    <label for="userDB" class="form-label">Пользователь базы данных</label>
+					    <input type="text" class="form-control" id="userDB" name="userDB" aria-describedby="userDbInfo">
+					    <div id="userDbInfo" class="form-text">Введите имя пользователя(root)</div>
+					  </div>
+					  <div class="mb-3">
+					    <label for="exampleInputPassword1" class="form-label">Пароль пользователя БД</label>
+					    <input type="password" class="form-control" id="exampleInputPassword1">
+					  </div>
+
+					   <div class="mb-3">
+					    <label for="fornameDB" class="form-label">Введите приставку для имен таблиц</label>
+					    <input type="text" class="form-control" id="fornameDB" name = "fornameDB" aria-describedby="fornameDbInfo">
+					    <div id="fornameDbInfo" class="form-text">Необходимо для безопасности, в дальнейшем неизменяемо (Например: my32423i_)</div>
+					  </div>
+					  <p>- Кодировка, принимаемая по умолчанию: utf8_general_ci</p>
+					  <div class="mb-3 form-check">
+					    <input type="checkbox" class="form-check-input" id="newClassForTable" name = "newClassForTable">
+					    <label class="form-check-label" for="newClassForTable">Создавать классы для работы с таблицами?</label>
+					  </div>
+
+					  <button type="submit" class="btn btn-primary">Подключиться и сохранить настройки</button>
+				</form>
+ -->
+<!-- TABLE
+ 			<h5 class="text-center">ИМЯ_БД</h5>
+			<div class="list-group">
+			  <a href="#" class="list-group-item list-group-item-action">table_one <b>></b></a>
+			  <div class="information mb-3 mt-3">
+			  	<p class="info_green">34 fields completed</p>
+			  	<p>id, name, login, password</p>
+			  </div>
+			  <a href="#" class="list-group-item list-group-item-action">table_two</a>
+			  <div class="information mb-3 mt-3">
+			  	<p class="info_green">34 fields completed</p>
+			  	<p>id, name, login, password</p>
+			  </div>
+			  <a href="#" class="list-group-item list-group-item-action">table_three</a>
+			  <div class="information mb-3 mt-3">
+			  	<p class="info_green">34 fields completed</p>
+			  	<p>id, name, login, password</p>
+			  </div>
+			</div> -->
+
+<!--   HISTORY
 				<p class="text-center">12.12 15:16</p>
 				
 				<div class="card mb-2">
@@ -59,7 +138,7 @@
 
 			<p class="text-center">12.12 15:16</p>
 				
-				<div class="card">
+				<div class="card mb-2">
 				  <div class="card-body">
 				    Create new table <span class='f_n_table'>'users'</span> <a href = "#" class = "p-2" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Вернуть БД к этому состоянию"><span class="fas fa-reply"></span></a>
 				  </div>
@@ -67,14 +146,63 @@
 
 			<p class="text-center">12.12 15:16</p>
 				
-				<div class="card">
+				<div class="card mb-2">
 				  <div class="card-body">
 				    In table <span class='f_n_table'>'users'</span> add fields `count`, `merge` <a href = "#" class = "p-2" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Вернуть БД к этому состоянию"><span class="fas fa-reply"></span></a>
 				  </div>
 				</div>
-
+ -->
 			</div>
 			<div class="col-md-9 right_panel"> 
+
+			<div class="card mb-2 mt-2">
+				<div class="card-body">
+				    <h5 class="text-center">Соединение установлено, создание таблицы </h5>
+				    <form>
+
+<textarea class="form-control commandline" rows="10">
+table_name = "";
+id = "this_id";
+date_creation = "this_date";</textarea>
+<div class="btn-group" role="group" aria-label="Basic outlined example">
+  <button type="button" class="btn btn-outline-primary">INT</button>
+  <button type="button" class="btn btn-outline-primary">FLOAT</button>
+  <button type="button" class="btn btn-outline-primary">DOUBLE</button>
+  <button type="button" class="btn btn-outline-primary">BOOLEAN</button>
+  <button type="button" class="btn btn-outline-primary">CHAR</button>
+  <button type="button" class="btn btn-outline-primary">VARCHAR</button>
+  <button type="button" class="btn btn-outline-primary">TEXT</button>
+</div><br />
+					  <button type="submit" class="btn btn-primary m-3">Создать таблицу</button>
+				    </form>
+
+			  </div>
+			</div>
+
+
+					<!-- FAQs что это?
+					<div class="card mb-2 mt-2">
+				  <div class="card-body">
+				    <h3 class="text-center">Что это? </h3>
+				    <p>
+				    	DTBS представляет собой полноценное веб-приложение, которое можно в случае необходимости удалить без вреда для созданных баз данных. А при необходимости поставить и заново использовать. Dtbs полностью автономен, а также весит очень мало.
+				    </p>
+				    <p>
+				    	Этот модуль, DTBS, в первой своей итерации, предоставляет следующие возможности:
+				    </p>
+				    <ul>
+				    	<li>
+				    		Создание, редактирование и удаление таблиц. Все происходит исключительно через веб-интерфейс.
+				    	</li>
+				    	<li>
+				    		При подключении класса Dtbs в ваш проект, возможна работа с вашей базой данных, на уровне всех необходимых операций: получение , изменение, удаление и конечно добавление данных. Конечно все это с возможностью выборки и сортировки.
+				    	</li>
+				    </ul>
+				  </div>
+				</div>
+ -->
+
+
 
 			</div>
 		</div>
