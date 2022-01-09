@@ -1,0 +1,20 @@
+<div class="card-body">
+<h5 class="text-center">Соединение установлено, создание таблицы </h5>
+<form>
+	<textarea class="form-control commandline" rows="10">
+	table_name = "";
+	id = "this_id";
+	date_creation = "this_date";</textarea>
+	<div class="btn-group" role="group" aria-label="Basic outlined example">
+	<button type="button" class="btn btn-outline-primary">INT</button>
+	<button type="button" class="btn btn-outline-primary">FLOAT</button>
+	<button type="button" class="btn btn-outline-primary">DOUBLE</button>
+	<button type="button" class="btn btn-outline-primary">BOOLEAN</button>
+	<button type="button" class="btn btn-outline-primary">CHAR</button>
+	<button type="button" class="btn btn-outline-primary">VARCHAR</button>
+	<button type="button" class="btn btn-outline-primary">TEXT</button>
+	</div><br />
+	<button type="submit" class="btn btn-primary m-3">Создать таблицу</button>
+</form>
+
+</div>

@@ -38,57 +38,9 @@
 			</div>
 			<div class="col-md-9 right_panel">
 
-			<div class="card mb-2 mt-2">
-				%main_right%
-
-				<div class="card-body">
-				    <h5 class="text-center">Соединение установлено, создание таблицы </h5>
-				    <form>
-
-<textarea class="form-control commandline" rows="10">
-table_name = "";
-id = "this_id";
-date_creation = "this_date";</textarea>
-<div class="btn-group" role="group" aria-label="Basic outlined example">
-  <button type="button" class="btn btn-outline-primary">INT</button>
-  <button type="button" class="btn btn-outline-primary">FLOAT</button>
-  <button type="button" class="btn btn-outline-primary">DOUBLE</button>
-  <button type="button" class="btn btn-outline-primary">BOOLEAN</button>
-  <button type="button" class="btn btn-outline-primary">CHAR</button>
-  <button type="button" class="btn btn-outline-primary">VARCHAR</button>
-  <button type="button" class="btn btn-outline-primary">TEXT</button>
-</div><br />
-					  <button type="submit" class="btn btn-primary m-3">Создать таблицу</button>
-				    </form>
-
-			  </div>
-			</div>
-
-
-					<!-- FAQs что это?
-					<div class="card mb-2 mt-2">
-				  <div class="card-body">
-				    <h3 class="text-center">Что это? </h3>
-				    <p>
-				    	DTBS представляет собой полноценное веб-приложение, которое можно в случае необходимости удалить без вреда для созданных баз данных. А при необходимости поставить и заново использовать. Dtbs полностью автономен, а также весит очень мало.
-				    </p>
-				    <p>
-				    	Этот модуль, DTBS, в первой своей итерации, предоставляет следующие возможности:
-				    </p>
-				    <ul>
-				    	<li>
-				    		Создание, редактирование и удаление таблиц. Все происходит исключительно через веб-интерфейс.
-				    	</li>
-				    	<li>
-				    		При подключении класса Dtbs в ваш проект, возможна работа с вашей базой данных, на уровне всех необходимых операций: получение , изменение, удаление и конечно добавление данных. Конечно все это с возможностью выборки и сортировки.
-				    	</li>
-				    </ul>
-				  </div>
+				<div class="card mb-2 mt-2">
+					%main_right%
 				</div>
- -->
-
-
-
 			</div>
 		</div>
 	</div>
