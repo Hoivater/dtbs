@@ -10,6 +10,8 @@
 			// code...
 		}
 
+
+		//вспомогательная функция для вывода массива
 		public static function PrintRouteArray($route_array)
 		{
 			foreach ($route_array as $key) {

@@ -1,8 +1,8 @@
 <?php
-	require "dtbs/route.php";
-	require "dtbs/visible.php";
+	require "data/route.php";
+	require "data/visible.php";
 
 	$page = new Route($_SERVER["REQUEST_URI"]);//полноценная html страница
-	Visible::PrintRouteArray($page -> getRouteArray());//вывод страницы в браузер
+	Visible::PrintPage($page -> getHtml());//вывод страницы в браузер
 
 ?>
