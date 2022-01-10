@@ -1,32 +1,32 @@
 	<form name = "connect" action = "#" method = "post">
 					 <div class="mb-3">
 					    <label for="hostDB" class="form-label">Введите host</label>
-					    <input type="text" class="form-control" id="hostDB" name = "hostDB" aria-describedby="hostDbInfo">
+					    <input type="text" class="form-control" id="hostDB" name = "hostDB" aria-describedby="hostDbInfo" value = "%host%">
 					    <div id="hostDbInfo" class="form-text">Возможно: localhost</div>
 					  </div>
 					 <div class="mb-3">
 					    <label for="nameDB" class="form-label">Имя базы данных</label>
-					    <input type="text" class="form-control" id="nameDB" name="nameDB"  aria-describedby="nameDbInfo">
+					    <input type="text" class="form-control" id="nameDB" name="nameDB"  aria-describedby="nameDbInfo" value = "%name_db%">
 					    <div id="nameDbInfo" class="form-text">Введите имя базы данных</div>
 					  </div>
 					 <div class="mb-3">
 					    <label for="userDB" class="form-label">Пользователь базы данных</label>
-					    <input type="text" class="form-control" id="userDB" name="userDB" aria-describedby="userDbInfo">
+					    <input type="text" class="form-control" id="userDB" name="userDB" aria-describedby="userDbInfo" value = "%user%">
 					    <div id="userDbInfo" class="form-text">Введите имя пользователя(root)</div>
 					  </div>
 					  <div class="mb-3">
 					    <label for="exampleInputPassword1" class="form-label">Пароль пользователя БД</label>
-					    <input type="password" class="form-control" id="exampleInputPassword1">
+					    <input type="password" class="form-control" id="exampleInputPassword1" value = "%password%">
 					  </div>
 
 					   <div class="mb-3">
 					    <label for="fornameDB" class="form-label">Введите приставку для имен таблиц</label>
-					    <input type="text" class="form-control" id="fornameDB" name = "fornameDB" aria-describedby="fornameDbInfo">
+					    <input type="text" class="form-control" id="fornameDB" name = "fornameDB" aria-describedby="fornameDbInfo" value = "%fornameDB%">
 					    <div id="fornameDbInfo" class="form-text">Необходимо для безопасности, в дальнейшем неизменяемо (Например: my32423i_)</div>
 					  </div>
 					  <p>- Кодировка, принимаемая по умолчанию: utf8_general_ci</p>
 					  <div class="mb-3 form-check">
-					    <input type="checkbox" class="form-check-input" id="newClassForTable" name = "newClassForTable">
+					    <input type="checkbox" class="form-check-input" id="newClassForTable" name = "newClassForTable" value = "yes" %newClassForTable%>
 					    <label class="form-check-label" for="newClassForTable">Создавать классы для работы с таблицами?</label>
 					  </div>
 
