@@ -9,7 +9,7 @@
 
 		function __construct()
 		{
-			echo "Экземпляр класса MainTable создан<br />";
+			// echo "Экземпляр класса MainTable создан<br />";
 		}
 
 	}

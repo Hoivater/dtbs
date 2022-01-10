@@ -1,0 +1,8 @@
+<div class="card-body">
+<h5 class="text-center">Импорт своей базы данных</h5>
+<form>
+<textarea class="form-control importSql" rows="10" placeholder = 'Вставьте сюда ваш SQL'></textarea><br />
+	<button type="submit" class="btn btn-primary m-3">Импортировать</button>
+</form>
+
+</div>

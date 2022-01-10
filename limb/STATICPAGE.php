@@ -3,6 +3,7 @@
 	require "STATICTABLE.php";
 	require "base/control/control.php";
 	require "base/control/necessary.php";
+	require "TRAITPAGE.php";
 	/**
 	 * Сборка неизменяемой части страницы
 	 */
@@ -15,10 +16,10 @@
 		function __construct()
 		{
 			session_start();
-			unset($_SESSION['connect']);
+			if(isset($_SESSION['connect'])) unset($_SESSION['connect']);
 			$html = file_get_contents("tmplt_dtbs/layouts/main.tmplt");
 			$this -> control = new Control();
-			$this -> html_static_page = $tmplt;
+			$this -> html_static_page = $html;
 			$this -> controlConnectDB();
 			$this -> setting = parse_ini_file('off_db/setting.ini');
 			$menu_left = file_get_contents('tmplt_dtbs/menu/menu_left.tmplt');

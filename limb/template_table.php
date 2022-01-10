@@ -9,7 +9,7 @@
 
 		function __construct()
 		{
-			echo "Экземпляр класса TemplateTable создан<br />";
+			// echo "Экземпляр класса TemplateTable создан<br />";
 		}
 
 	}

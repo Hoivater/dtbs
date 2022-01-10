@@ -9,7 +9,7 @@
 
 		function __construct()
 		{
-			echo "Экземпляр класса ImportTable создан<br />";
+			// echo "Экземпляр класса ImportTable создан<br />";
 		}
 
 	}

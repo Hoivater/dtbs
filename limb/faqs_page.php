@@ -9,16 +9,12 @@
 	 */
 	class FaqsPage extends FaqsTable
 	{
-		public $html;//заготовка
-		public $page;//результат работы класса
-		public $tmplt;//массив для замены
+		use tPage;
 
 		function __construct($name_page)
 		{
 			parent::__construct();
 			$staticPage = new StaticPage();//получение html кода статической части страницы
-
-			$this -> tmplt = ["%main_left%", "%message%", "%main_right%"];
 
 			$this -> html = $staticPage -> getStaticPage();
 			$this -> Page($name_page);
@@ -27,10 +23,12 @@
 		public function Page($name_page)
 		{
 			session_start();
-			unset($_SESSION['message']);
+			if(isset($_SESSION["message"]))  unset($_SESSION['message']);
+			
+
 			if($name_page === 0)
 			{
-				$main_right = $this -> searchPage("dtbs");
+				$main_right = $this -> searchPage("about_dtbs");
 			}
 			else
 			{
@@ -38,12 +36,15 @@
 			}
 
 			$main_left = file_get_contents('tmplt_dtbs/main/main_left_faq.tmplt');
-			$message = $_SESSION["message"];
+			
 
+
+			if(isset($_SESSION["message"])) $message = $_SESSION["message"];
+			else $message = "";
+			
 			$replace = [$main_left, $message, $main_right];
-
 			$this -> page = Necessary::standartReplace($this -> tmplt, $replace, $this -> html);
-
+			
 		}
 
 	}

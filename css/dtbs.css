@@ -40,6 +40,11 @@
 	border-radius: 5px;
 	background: #DFEFFF;
 }
+.table_template{
+	overflow-x: scroll; /* Добавляем полосу прокрутки */
+    width: 100%; /* Ширина блока */
+    padding: 5px; /* Поля вокруг текста */
+}
 /*текстовое оформление*/
 .f_n_table{
 	color: #AC78C7;

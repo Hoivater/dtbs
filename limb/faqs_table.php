@@ -9,7 +9,7 @@
 
 		function __construct()
 		{
-			echo "Экземпляр класса FaqsTable создан<br />";
+			
 		}
 
 		protected function searchPage($name_page)
@@ -23,7 +23,10 @@
 			{
 				$result = "Указанный файл не был найден";
 			}
-			return $result;
+
+			$main_right = file_get_contents('tmplt_dtbs/main/main_right_faqs.tmplt');
+			$fin = Necessary::standartReplace(['%text%'], [$result], $main_right);
+			return $fin;
 		}
 	}
 ?>

@@ -1,0 +1,139 @@
+<div class="card-body">
+<h5 class="text-center">Шаблоны часто используемых таблиц</h5>
+
+<hr>
+<h6 class="text-start"><a href = "#" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Создать свою таблицу из...">Таблица пользователей</a></h6>
+<table class="table table-bordered">
+	<tr>
+		<td>
+			id
+		</td>
+		<td>
+			name
+		</td>
+		<td>
+			login
+		</td>
+		<td>
+			email
+		</td>
+		<td>
+			password
+		</td>
+		<td>
+			status
+		</td>
+		<td>
+			date_creation
+		</td>
+	</tr>
+	<tr>
+		<td>
+			this_id
+		</td>
+		<td>
+			VARCHAR(60)
+		</td>
+		<td>
+			VARCHAR(60)
+		</td>
+		<td>
+			VARCHAR(255)
+		</td>
+		<td>
+			VARCHAR(32)
+		</td>
+		<td>
+			VARCHAR(50)
+		</td>
+		<td>
+			this_date
+		</td>
+	</tr>
+</table>
+
+
+<hr>
+<div class = "table_template">
+<h6 class="text-start"><a href = "#" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Создать свою таблицу из...">Таблица товаров</a></h6>
+	<table class="table table-bordered">
+		<tr>
+			<td>
+				id
+			</td>
+			<td>
+				name_product
+			</td>
+			<td>
+				link
+			</td>
+			<td>
+				image
+			</td>
+			<td>
+				s_description
+			</td>
+			<td>
+				b_description
+			</td>
+			<td>
+				tags
+			</td>
+			<td>
+				price
+			</td>
+			<td>
+				count
+			</td>
+			<td>
+				number_of_views
+			</td>
+			<td>
+				visible
+			</td>
+			<td>
+				date_creation
+			</td>
+		</tr>
+		<tr>
+			<td>
+				this_id
+			</td>
+			<td>
+				VARCHAR(255)
+			</td>
+			<td>
+				VARCHAR(255)
+			</td>
+			<td>
+				TEXT
+			</td>
+			<td>
+				TEXT
+			</td>
+			<td>
+				TEXT
+			</td>
+			<td>
+				TEXT
+			</td>
+			<td>
+				INT(10)
+			</td>
+			<td>
+				INT(10)
+			</td>
+			<td>
+				INT(10)
+			</td>
+			<td>
+				VARCHAR(10)
+			</td>
+			<td>
+				this_date
+			</td>
+		</tr>
+	</table>
+</div>
+
+</div>

@@ -53,15 +53,8 @@ class Route
 				}
 				elseif($route_arr[0] == "faqs")
 				{
-					if(isset($route_arr[1]))
-					{
-						$html = new FaqsPage($route_arr[1]);//открываем заданную
-					}
-					else
-					{
-						$html = new FaqsPage(0);//открываем первую статью
-					}
-					$this -> html = $html -> page;
+					if(isset($route_arr[1])) $html = new FaqsPage($route_arr[1]);//открываем заданную
+					else $html = new FaqsPage(0);//открываем первую статью
 				}
 				else
 				{
@@ -73,8 +66,9 @@ class Route
 		}
 		else
 		{
-			$html = new MainPage();
+			$html = new MainPage();//открываем главную страницу
 		}
+		$this -> html = $html -> page;
 	}
 
 
