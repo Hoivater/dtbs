@@ -1,18 +1,4 @@
-<h5 class="text-center">ИМЯ_БД</h5>
+<h5 class="text-center">БАЗА ДАННЫХ: %name_db%</h5>
 <div class="list-group">
-  <a href="#" class="list-group-item list-group-item-action">table_one <b>></b></a>
-  <div class="information mb-3 mt-3">
-  	<p class="info_green">34 fields completed</p>
-  	<p>id, name, login, password</p>
-  </div>
-  <a href="#" class="list-group-item list-group-item-action">table_two</a>
-  <div class="information mb-3 mt-3">
-  	<p class="info_green">34 fields completed</p>
-  	<p>id, name, login, password</p>
-  </div>
-  <a href="#" class="list-group-item list-group-item-action">table_three</a>
-  <div class="information mb-3 mt-3">
-  	<p class="info_green">34 fields completed</p>
-  	<p>id, name, login, password</p>
-  </div>
+  %information_db%
 </div>

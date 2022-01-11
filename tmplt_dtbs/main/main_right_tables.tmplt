@@ -1,0 +1,25 @@
+<h4 class="text-start">Таблица: %name_db%</h4>
+<div class="table_template">
+<table class="table table-bordered">
+	<tr>
+		%tr1%
+	</tr>
+	<tr>
+		%tr2%
+	</tr>
+	<tr>
+		<td colspan = "%count_array%"><h5>Код для DTBS <a href = "#">Копировать</a></h5></td>
+	</tr>
+	<tr>
+		<td colspan = "%count_array%">
+			<textarea class="form-control commandline" rows="10">%code_dtbs%</textarea>
+		</td>
+	</tr>
+	<tr>
+		<td colspan = "%count_array%"><h5>Для шаблонов <a href = "#">Копировать</a></h5></td>
+	</tr>
+	<tr>
+		<td colspan = "%count_array%"><h5><textarea class="form-control commandline">%code_tmplt%</textarea></h5></td>
+	</tr>
+</table>
+</div>

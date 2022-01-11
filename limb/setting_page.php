@@ -22,9 +22,12 @@
 		public function Page()
 		{
 			session_start();
-			if(isset($_SESSION["message"]))  unset($_SESSION['message']);
-
-
+			if(isset($_SESSION["message"])){
+				if($_SESSION["message"] == 1)
+					$_SESSION["message"] = "Настройки успешно обновлены";
+				elseif($_SESSION["message"] == 0)
+					$_SESSION["message"] = "Произошла ошибка обновления, попробуйте еще раз или вручную";
+			}
 			$main_right = "";
 
 			$main_left = $this -> main_left_settingF();

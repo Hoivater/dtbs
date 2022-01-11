@@ -7,7 +7,7 @@
 	class SettingTable
 	{
 		// #1
-		public $tmplt_main_left_setting = ['%host%', '%newClassForTable%', '%name_db%', '%user%', '%password%', '%fornameDB%'];
+		public $tmplt_main_left_setting = ['%host%', '%name_db%', '%user%', '%password%', '%fornameDB%'];
 		public $result_main_left_setting;//финиш для шаблона main/main_left_setting
 		public $main_left_setting;
 		public $inc_main_left_setting;
@@ -26,6 +26,10 @@
 		{
 
 			$this -> result_main_left_setting = Necessary::asortReplace($this -> tmplt_main_left_setting, $this -> inc_main_left_setting, $this -> main_left_setting);
+
+			//Necessary::CompareArrayInTable($this -> tmplt_main_left_setting, $this -> inc_main_left_setting);
+
+
 			return $this -> result_main_left_setting;
 		}
 

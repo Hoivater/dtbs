@@ -49,7 +49,8 @@ class Route
 				}
 				elseif($route_arr[0] == "table")
 				{
-					$html = new TablePage();
+					if(isset($route_arr[1])) $html = new TablePage($route_arr[1]);//открываем заданную
+					else $html = new TablePage(0);//открываем первую статью
 				}
 				elseif($route_arr[0] == "faqs")
 				{

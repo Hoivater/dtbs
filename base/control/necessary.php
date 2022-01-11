@@ -56,5 +56,34 @@
 
 			echo "</tr></table>";
 		}
+		//конвертация файла в текст формата Ini
+		public static function ConvertInIni($arr)
+		{
+			$ini_text = "[setting]\n";
+			foreach ($arr as $key => $value) {
+				$ini_text .= $key."='".$value."';\n";
+			}
+			return $ini_text;
+		}
+
+		// public static function ReplaceRepeat($tmplt, $replace, $html)
+		// {
+		// 	$result = "";
+		// 	for($i = 0; $i <= count($replace)-1; $i++)
+		// 	{
+		// 		$result .= self::asortReplace($tmplt, $replace, $html);
+		// 	}
+		// 	return $result;
+		// }
+		public static function ReplaceRepeat($tmplt, $replace, $html)
+		{
+			$result = "";
+			for($i = 0; $i <= count($replace)-1; $i++)
+			{
+
+				$result .= self::standartReplace($tmplt, $replace[$i], $html);
+			}
+			return $result;
+		}
 	}
 ?>
