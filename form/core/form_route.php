@@ -25,6 +25,10 @@
 				$this -> result = $this -> tab_newIni();// перезаписывает db.ini возвращает либо true Либо false
 				
 			}
+			elseif($name_form == 'importBD')
+			{
+				$this -> result = $this -> ImportBD();
+			}
 		}
 
 

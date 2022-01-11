@@ -25,7 +25,7 @@
 
 		#3 сборка таблицы
 		public $main_right_tables;
-		public $tmplt_main_right_tables = ['%name_db%', '%tr1%', '%tr2%', '%count_array%', '%code_dtbs%', '%code_tmplt%'];
+		public $tmplt_main_right_tables = ['%name_db%', '%tr1%', '%tr2%', '%count_array%', '%code_dtbs%', '%code_tmplt%', '%code_for_code_tmplt%'];
 		public $result_main_right_tables;
 		#end 3
 
@@ -45,8 +45,6 @@
 		public function main_left_table_F()
 		{
 			
-
-
 			$ini = parse_ini_file('base/db.ini');
 			$name_db = $ini["name_db"];
 			
@@ -84,7 +82,8 @@
 
 			$code_dtbs = $this -> trBuilding($data, "code_dtbs");
 			$code_tmplt = $this -> trBuilding($data, "code_tmplt");
-			$this -> result_main_right_tables = Necessary::standartReplace($this -> tmplt_main_right_tables, [$name, $tr1, $tr2, $count_array, $code_dtbs, $code_tmplt], $this -> main_right_tables);
+			$code_f_code_tmplt = $this -> trBuilding($data, "code_for_code_tmplt");
+			$this -> result_main_right_tables = Necessary::standartReplace($this -> tmplt_main_right_tables, [$name, $tr1, $tr2, $count_array, $code_dtbs, $code_tmplt, $code_f_code_tmplt], $this -> main_right_tables);
 
 			return $this -> result_main_right_tables;
 		}
@@ -126,12 +125,23 @@
 				}	
 				$result = substr($result, 0, -2)."]"; 
 			}
+			elseif($type == "code_for_code_tmplt")
+			{
+				$symbol = $this -> setting['symbol_code_tmplt'];
+				foreach($data as $one)
+				{
+					$name = '$'.$one["COLUMN_NAME"];
+
+					$result .= $name.", ";
+				}
+				$result = substr($result, 0, -2);
+			}
 			elseif($type == "code_dtbs")
 			{
 				foreach($data as $one)
 				{
 					$name = $one["COLUMN_TYPE"];
-					if($name == "bigint unsigned")
+					if($name == "bigint unsigned" || $name == "int(10) unsigned")
 					{
 						if($one["COLUMN_KEY"] == 'PRI' && $one["EXTRA"] == 'auto_increment' && $one["COLUMN_NAME"] == 'id')
 						{

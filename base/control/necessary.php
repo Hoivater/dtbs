@@ -85,5 +85,57 @@
 			}
 			return $result;
 		}
+
+		public static function ToCodeSql($code)
+		{
+			$result = '';
+			$result_array = [];
+			$i = 0;
+			$code_array = explode("\n", $code);
+
+			foreach ($code_array as $key)
+			{
+				$key = trim($key);#убираем пробелы вначале и в конце
+				$sym = substr($key, 0,2);#получаем первых два символа
+				$key = str_replace('"', "'", $key);
+
+				if($sym == "--" || $sym == "/*" || $sym == NULL || $sym == "")
+				{
+
+				}
+				else
+				{
+					if(substr($key, -1) == ";")
+					{
+						$key = substr($key, 0, -1);
+						$t = true;
+					}
+					$result .= $key."\n<br />";
+					if($t === true)
+					{
+						//$key = substr($key, 0, -1);
+						//$key .= '"';
+						$result_array[] = $result;
+						$result = '';
+						$t = false;
+					}
+					//
+					//
+					// $result .= $key."\n<br />";
+					// if(substr($key, -1) == ";")
+					// {
+					// 	//$key = substr($key, 0, -1);
+					// 	//$key .= '"';
+					// 	$result_array[] = $result;
+					// 	$result = "";
+					// }
+
+
+					//echo substr($key, 0,2)."<br />";
+				}
+
+			}
+			return $result_array;
+		}
 	}
 ?>

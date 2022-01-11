@@ -45,7 +45,9 @@
     width: 100%; /* Ширина блока */
     padding: 5px; /* Поля вокруг текста */
 }
-
+.para{
+	padding-left: 30px;
+}
 /*текстовое оформление*/
 .f_n_table{
 	color: #AC78C7;

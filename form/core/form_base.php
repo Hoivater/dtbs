@@ -1,5 +1,5 @@
 <?php
-
+	require "../base/tableInq.php";
 
 	class FormBase
 	{	
@@ -17,6 +17,18 @@
 			$this -> ini_new = Necessary::ConvertInIni($this -> data);
 			// print_r($this -> ini_new);
 			file_put_contents('../base/db.ini', $this -> ini_new);
+			return true;
+		}
+		public function ImportBD()
+		{
+			$code = $this -> data['file_sql'];
+			$tableInq = new TableInq();
+			$code_array = Necessary::ToCodeSql($code);
+
+			foreach ($code_array as $code) {
+				$tableInq -> ImportBDU($code);
+			}
+			//print_r($code_array);
 			return true;
 		}
 	}

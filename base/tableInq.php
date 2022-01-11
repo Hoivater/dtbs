@@ -15,6 +15,7 @@ require_once "dataBase.php";
 		{
 			$query = "SHOW TABLES";
 			$table = $this -> db -> select($query);
+
 			return $table;
 		}
 		#получить названия присутсвующих таблиц
@@ -30,6 +31,16 @@ require_once "dataBase.php";
 		}
 		public function ChoiceTableContinue($table_name, $length, $startFrom){//выборка из таблицы нужного количество статей в обратной последовательности 
 			$query = "SELECT * FROM `".$table_name."` ORDER BY `id` DESC LIMIT ".$startFrom.", ".$length;
+			$table = $this -> db -> select($query);
+			return $table;
+		}
+		//функция предназначена для импорта базы данных
+		//необходимо сформировать query:
+		//- заменить " на \"
+		//- заменить перенос строки на \n
+		public function ImportBDU($query)
+		{
+			echo $query."<br />";
 			$table = $this -> db -> select($query);
 			return $table;
 		}
