@@ -8,24 +8,27 @@
 		%tr2%
 	</tr>
 	<tr>
-		<td colspan = "%count_array%"><h5 class = 'para'>Код для DTBS <a href = "#">Копировать</a></h5></td>
+		<td colspan = "%count_array%"><h5 class = 'para'>Код для DTBS <a href='' class="copy" id = "code_dtbs">Копировать</a></h5></td>
 	</tr>
 	<tr>
 		<td colspan = "%count_array%">
-			<textarea class="form-control commandline" rows="10">%code_dtbs%</textarea>
+			<form name = 'redaction_table' action = '/form/form_controller.php' method = 'post'>
+				<textarea class="commandline" rows="10" id = 't_code_dtbs'>%code_dtbs%</textarea>
+			</form>
+			<button type = 'submit' value = 'RedactionTable' name = 'formName' class='m-3 btn btn-primary'>Сохранить внесенные изменения</button>
 		</td>
 	</tr>
 	<tr>
-		<td colspan = "%count_array%"><h5 class = 'para'>Для шаблонов <a href = "#">Копировать</a></h5></td>
+		<td colspan = "%count_array%"><h5 class = 'para'>Для шаблонов <a href = ""  class="copy" id = "code_tmplt">Копировать</a></h5></td>
 	</tr>
 	<tr>
-		<td colspan = "%count_array%"><textarea class="form-control commandline">%code_tmplt%</textarea></td>
+		<td colspan = "%count_array%"><textarea class="commandline" id = 't_code_tmplt'>%code_tmplt%</textarea></td>
 	</tr>
 	<tr>
-		<td colspan = "%count_array%"><h5 class = 'para'>Для кода <a href = "#">Копировать</a></h5></td>
+		<td colspan = "%count_array%"><h5 class = 'para'>Для кода <a href = ""  class="copy" id = "code_php">Копировать</a></h5></td>
 	</tr>
 	<tr>
-		<td colspan = "%count_array%"><h5><textarea class="form-control commandline">%code_for_code_tmplt%</textarea></h5></td>
+		<td colspan = "%count_array%"><textarea class="commandline" id = 't_code_php'>%code_for_code_tmplt%</textarea></td>
 	</tr>
 </table>
 </div>

@@ -18,10 +18,10 @@ require_once "dataBase.php";
 
 			return $table;
 		}
-		#получить названия присутсвующих таблиц
+		#получить названия присутсвующих колонок
 		public function structureTable($table_name)
 		{
-			$query = "SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE table_name='".$table_name."'";
+			$query = "SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE table_name='".$table_name."' ORDER BY `ORDINAL_POSITION`";
 			$table = $this -> db -> select($query);
 			return $table;
 		}
@@ -40,10 +40,8 @@ require_once "dataBase.php";
 		//- заменить перенос строки на \n
 		public function ImportBDU($query)
 		{
-			echo $query."<br />";
-			$table = $this -> db -> select($query);
+			$table = $this -> db -> multi($query);
 			return $table;
 		}
-
 	}
 ?>

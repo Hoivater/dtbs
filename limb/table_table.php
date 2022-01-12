@@ -64,6 +64,7 @@
 		#вывод таблицы
 		public function VisibleTable($name)
 		{
+			// echo $name;
 			$data = $this -> tableInq -> structureTable($name);
 			
 			// foreach($data as $key)
@@ -81,7 +82,11 @@
 			$tr2 = $this -> trBuilding($data, "value");
 
 			$code_dtbs = $this -> trBuilding($data, "code_dtbs");
+
+
 			$code_tmplt = $this -> trBuilding($data, "code_tmplt");
+
+
 			$code_f_code_tmplt = $this -> trBuilding($data, "code_for_code_tmplt");
 			$this -> result_main_right_tables = Necessary::standartReplace($this -> tmplt_main_right_tables, [$name, $tr1, $tr2, $count_array, $code_dtbs, $code_tmplt, $code_f_code_tmplt], $this -> main_right_tables);
 
@@ -138,6 +143,7 @@
 			}
 			elseif($type == "code_dtbs")
 			{
+				$result = "table_name = '".$data[0]['TABLE_NAME']."';\n";
 				foreach($data as $one)
 				{
 					$name = $one["COLUMN_TYPE"];

@@ -31,7 +31,11 @@ class DataBase {
     }
     return $query;
   }
-
+  public function multi($query)
+  {
+    
+    return $this -> mysqli -> multi_query($query);
+  }
   public function connect()
   {
     return $this -> mysqli -> ping();

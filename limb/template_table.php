@@ -7,16 +7,77 @@
 	 */
 	class TemplateTable
 	{
+		#1
+		public $main_right_table;//html
+		public $result_main_right_table;
+		public $tmplt_main_right_table = ['%table%'];
+		#1
+
+		#2
+		public $table;
+		public $result_table;
+		public $tmplt_table = ['%table_name%', '%key1%', '%key2%'];
+		#2
 
 		function __construct()
 		{
-			// echo "Экземпляр класса TemplateTable создан<br />";
+			$this -> main_right_table = file_get_contents('tmplt_dtbs/main/main_right_table.tmplt');
+			$this -> table = file_get_contents('tmplt_dtbs/main/main_right_table/table.tmplt');
 		}
+
 		public function copyF_main_left_table_F()
 		{
-
 			$_table = new TableTable();
 			return $_table -> main_left_table_F();
 		}
+
+		public function mainRight(){
+			#2
+			//$template - название файла с шаблоном в off_db/template/...
+			$templates = Necessary::ScanDirF('off_db/template');
+			$code_ini_array = [];
+			foreach ($templates as $key) {
+				$code_ini_array[] = parse_ini_file("off_db/template/".$key);
+			}
+
+			$template = $this ->trBuilding($code_ini_array);
+			$table = Necessary::ReplaceRepeat($this -> tmplt_table, $template, $this -> table);
+			#2
+
+			#1
+			$this -> result_main_left_table = Necessary::ReplaceRepeat($this -> tmplt_main_right_table, [$table], $this -> main_right_table);
+			#1
+			return $this -> result_main_left_table;
+		}
+
+		private function trBuilding($data)
+		{
+			$result_array = [];
+			for($i = 0; $i <= count($data) - 1; $i++)
+			{
+				$result_key = "";
+				$result_value = "";
+				foreach ($data[$i] as $key => $value) {
+					if($key == "table_name")
+					{
+						$tn = $value;
+					}
+					else
+					{
+						$result_key .= "<td>".$key."</td>";
+						$result_value .= "<td>".$value."</td>";
+					}
+				}
+				$result_array[$i]["table_name"] = $tn;
+				$result_array[$i]["key1"] = $result_key;
+				$result_array[$i]["key2"] = $result_value;
+				$result_key = ""; 
+				$result_value = "";
+				$tn = "";
+			}
+			// print_r($result_array);
+			return $result_array;
+		}
+
 	}
 ?>

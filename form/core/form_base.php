@@ -23,13 +23,17 @@
 		{
 			$code = $this -> data['file_sql'];
 			$tableInq = new TableInq();
-			$code_array = Necessary::ToCodeSql($code);
-
-			foreach ($code_array as $code) {
-				$tableInq -> ImportBDU($code);
+			//$code_array = Necessary::ToCodeSql($code);
+			$result = $tableInq -> ImportBDU($code);
+			if($result == true)
+			{
+				$result = "База данных успешно импортирована";
 			}
-			//print_r($code_array);
-			return true;
+			else
+			{
+				$result = "При импорте произошла ошибка";
+			}
+			return $result;
 		}
 	}
 ?>

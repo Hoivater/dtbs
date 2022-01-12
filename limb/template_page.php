@@ -25,7 +25,7 @@
 			session_start();
 			if(isset($_SESSION["message"]))  unset($_SESSION['message']);
 			$main_left = $this -> copyF_main_left_table_F();
-			$main_right = file_get_contents('tmplt_dtbs/main/main_right_table.tmplt');
+			$main_right = $this -> mainRight();
 			
 
 

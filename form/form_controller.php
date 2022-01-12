@@ -6,6 +6,6 @@
 		$fRoute = new FormRoute($_POST["nameForm"], $_POST);//вход данных и их обработка
 		session_start();
 		$_SESSION["message"] = $fRoute -> result();
-		//header('Location: '.$_SERVER['HTTP_REFERER']);
+		header('Location: '.$_SERVER['HTTP_REFERER']);
 	}
 ?>

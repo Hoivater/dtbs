@@ -97,38 +97,38 @@
 			{
 				$key = trim($key);#убираем пробелы вначале и в конце
 				$sym = substr($key, 0,2);#получаем первых два символа
-				$key = str_replace('"', "'", $key);
-
-				if($sym == "--" || $sym == "/*" || $sym == NULL || $sym == "")
+				$key = str_replace('"', '"', $key);
+				//  || $sym == "/*"
+				if($sym == "--" || $sym == NULL || $sym == "")
 				{
 
 				}
 				else
 				{
-					if(substr($key, -1) == ";")
-					{
-						$key = substr($key, 0, -1);
-						$t = true;
-					}
-					$result .= $key."\n<br />";
-					if($t === true)
-					{
-						//$key = substr($key, 0, -1);
-						//$key .= '"';
-						$result_array[] = $result;
-						$result = '';
-						$t = false;
-					}
-					//
-					//
-					// $result .= $key."\n<br />";
 					// if(substr($key, -1) == ";")
+					// {
+					// 	$key = substr($key, 0, -1);
+					// 	$t = true;
+					// }
+					// $result .= $key."\n<br />";
+					// if($t === true)
 					// {
 					// 	//$key = substr($key, 0, -1);
 					// 	//$key .= '"';
 					// 	$result_array[] = $result;
-					// 	$result = "";
+					// 	$result = '';
+					// 	$t = false;
 					// }
+					//
+					//
+					$result .= $key."\n<br />";
+					if(substr($key, -1) == ";")
+					{
+						//$key = substr($key, 0, -1);
+						//$key .= '"';
+						$result_array[] = $result;
+						$result = "";
+					}
 
 
 					//echo substr($key, 0,2)."<br />";
@@ -136,6 +136,23 @@
 
 			}
 			return $result_array;
+		}
+
+		public static function ScanDirF($folder)
+		{
+			$result = [];
+			$files = scandir($folder);
+			foreach ($files as $key) {
+			 	if($key == '.' || $key == '..')
+			 	{
+			 		
+			 	}
+			 	else
+			 	{
+			 		$result[] = $key;
+			 	}
+			 }
+			 return $result; 
 		}
 	}
 ?>

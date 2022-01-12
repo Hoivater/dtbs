@@ -61,13 +61,16 @@ class Route
 				{
 					session_start();
 					$_SESSION['message'] = "Страница не найдена";
-					$html = new MainPage();
+					if(isset($route_arr[0])) $html = new MainPage($route_arr[0]);//открываем заданную
+					else $html = new MainPage(0);//открываем первую статью
 				}
 
 		}
 		else
 		{
-			$html = new MainPage();//открываем главную страницу
+
+			if(isset($route_arr[1])) $html = new MainPage($route_arr[1]);//открываем заданную
+			else $html = new MainPage(0);//открываем первую статью
 		}
 		$this -> html = $html -> page;
 	}

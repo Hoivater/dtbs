@@ -21,7 +21,7 @@
 			$this -> control = new Control();
 			$this -> html_static_page = $html;
 			$this -> controlConnectDB();
-			$this -> setting = parse_ini_file('off_db/setting.ini');
+			$this -> setting = parse_ini_file('setting.ini');
 			$menu_left = file_get_contents('tmplt_dtbs/menu/menu_left.tmplt');
 			$menu_right = file_get_contents('tmplt_dtbs/menu/menu_right.tmplt');
 
