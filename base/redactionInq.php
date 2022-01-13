@@ -1,6 +1,6 @@
 <?php
+namespace hoivater\dtbs\base;
 
-require	"dataBase.php";
 
 	class RedactionInq extends DataBase{
 		private $db;//объект базы данных

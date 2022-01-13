@@ -1,5 +1,6 @@
 <?
-
+	namespace hoivater\dtbs\limb;
+	use hoivater\dtbs\base as Base;
 	/**
 	 * работа с данными таблицы faqs
 	 * либо, как в этом случае, работа с файлами
@@ -24,8 +25,8 @@
 				$result = "Указанный файл не был найден";
 			}
 
-			$main_right = file_get_contents('tmplt_dtbs/main/main_right_faqs.tmplt');
-			$fin = Necessary::standartReplace(['%text%'], [$result], $main_right);
+			$main_right = file_get_contents('tmplt_dtbs/main/main_right_faqs.tm');
+			$fin = Base\control\Necessary::standartReplace(['%text%'], [$result], $main_right);
 			return $fin;
 		}
 	}

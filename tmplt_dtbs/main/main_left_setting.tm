@@ -1,4 +1,4 @@
-<form name = "connect" action = "/form/form_controller.php" method = "post">
+<form name = "connect" action = "/form/FormRoute.php" method = "post">
 
 	 <div class="mb-3">
 	    <label for="hostDB" class="form-label">Введите host</label>

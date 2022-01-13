@@ -1,6 +1,7 @@
 <?php
+namespace hoivater\dtbs\base;
 
-require_once "dataBase.php";
+// require_once "dataBase.php";
 
 	class TableInq extends DataBase{
 		private $db;//объект базы данных

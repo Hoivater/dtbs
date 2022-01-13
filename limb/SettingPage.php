@@ -1,15 +1,16 @@
 <?
-
-	require "template_table.php";
+namespace hoivater\dtbs\limb;
+use hoivater\dtbs\base as Base;
 	/**
 	 * формирование логики вывода страницы
 	 * Основные функции:
 	 * -проверка подключения к бд(этот статус выводится на всех страницах);
 	 * -проверка общих настроек;
 	 */
-	class TemplatePage extends TemplateTable
+	class SettingPage extends SettingTable
 	{
 		use tPage;
+
 		function __construct()
 		{
 			parent::__construct();
@@ -19,24 +20,28 @@
 			$this -> Page();
 		}
 
-
 		public function Page()
 		{
 			session_start();
-			if(isset($_SESSION["message"]))  unset($_SESSION['message']);
-			$main_left = $this -> copyF_main_left_table_F();
-			$main_right = $this -> mainRight();
-			
+			if(isset($_SESSION["message"])){
+				if($_SESSION["message"] == 1)
+					$_SESSION["message"] = "Настройки успешно обновлены";
+				elseif($_SESSION["message"] == 0)
+					$_SESSION["message"] = "Произошла ошибка обновления, попробуйте еще раз или вручную";
+			}
+			$main_right = "";
 
+			$main_left = $this -> main_left_settingF();
 
 			if(isset($_SESSION["message"])) $message = $_SESSION["message"];
 			else $message = "";
-			
-			$replace = [$main_left, $message, $main_right];
-			$this -> page = Necessary::standartReplace($this -> tmplt, $replace, $this -> html);
-			
-		}
 
+
+
+			$replace = [$main_left, $message, $main_right];
+
+			$this -> page = Base\control\Necessary::standartReplace($this -> tmplt, $replace, $this -> html);
+		}
 
 	}
 ?>

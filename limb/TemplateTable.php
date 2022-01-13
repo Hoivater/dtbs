@@ -1,6 +1,7 @@
 <?
 
-
+namespace hoivater\dtbs\limb;
+use hoivater\dtbs\base as Base; 
 	/**
 	 * работа с данными таблицы faqs
 	 * либо, как в этом случае, работа с файлами
@@ -21,8 +22,8 @@
 
 		function __construct()
 		{
-			$this -> main_right_table = file_get_contents('tmplt_dtbs/main/main_right_table.tmplt');
-			$this -> table = file_get_contents('tmplt_dtbs/main/main_right_table/table.tmplt');
+			$this -> main_right_table = file_get_contents('tmplt_dtbs/main/main_right_table.tm');
+			$this -> table = file_get_contents('tmplt_dtbs/main/main_right_table/table.tm');
 		}
 
 		public function copyF_main_left_table_F()
@@ -34,18 +35,18 @@
 		public function mainRight(){
 			#2
 			//$template - название файла с шаблоном в off_db/template/...
-			$templates = Necessary::ScanDirF('off_db/template');
+			$templates = Base\control\Necessary::ScanDirF('off_db/template');
 			$code_ini_array = [];
 			foreach ($templates as $key) {
 				$code_ini_array[] = parse_ini_file("off_db/template/".$key);
 			}
 
 			$template = $this ->trBuilding($code_ini_array);
-			$table = Necessary::ReplaceRepeat($this -> tmplt_table, $template, $this -> table);
+			$table = Base\control\Necessary::ReplaceRepeat($this -> tmplt_table, $template, $this -> table);
 			#2
 
 			#1
-			$this -> result_main_left_table = Necessary::ReplaceRepeat($this -> tmplt_main_right_table, [$table], $this -> main_right_table);
+			$this -> result_main_left_table = Base\control\Necessary::ReplaceRepeat($this -> tmplt_main_right_table, [$table], $this -> main_right_table);
 			#1
 			return $this -> result_main_left_table;
 		}

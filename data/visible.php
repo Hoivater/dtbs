@@ -1,4 +1,5 @@
 <?php
+namespace hoivater\dtbs\data;
 	/**
 	 *
 	 */

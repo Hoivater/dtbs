@@ -1,6 +1,5 @@
 <?php
-
-require	"dataBase.php";
+namespace hoivater\dtbs\base;
 
 	class SearchInq extends DataBase{
 		private $db;//объект базы данных

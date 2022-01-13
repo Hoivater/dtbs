@@ -1,41 +1,36 @@
 <?
-
-	require "faqs_table.php";
+	namespace hoivater\dtbs\limb;
+	use hoivater\dtbs\base as Base; 
 	/**
 	 * формирование логики вывода страницы
 	 * Основные функции:
 	 * -проверка подключения к бд(этот статус выводится на всех страницах);
 	 * -проверка общих настроек;
 	 */
-	class FaqsPage extends FaqsTable
+	class ImportPage extends ImportTable
 	{
 		use tPage;
 
-		function __construct($name_page)
+		function __construct()
 		{
 			parent::__construct();
 			$staticPage = new StaticPage();//получение html кода статической части страницы
 
 			$this -> html = $staticPage -> getStaticPage();
-			$this -> Page($name_page);
+			$this -> Page();
 		}
 
-		public function Page($name_page)
+		public function Page()
 		{
 			session_start();
 			if(isset($_SESSION["message"]))  unset($_SESSION['message']);
 			
 
-			if($name_page === 0)
-			{
-				$main_right = $this -> searchPage("about_dtbs");
-			}
-			else
-			{
-				$main_right = $this -> searchPage($name_page);
-			}
 
-			$main_left = file_get_contents('tmplt_dtbs/main/main_left_faq.tmplt');
+			$main_left = file_get_contents('tmplt_dtbs/main/main_left_history.tm');
+
+
+			$main_right = file_get_contents('tmplt_dtbs/main/main_right_import.tm');
 			
 
 
@@ -43,7 +38,7 @@
 			else $message = "";
 			
 			$replace = [$main_left, $message, $main_right];
-			$this -> page = Necessary::standartReplace($this -> tmplt, $replace, $this -> html);
+			$this -> page = Base\control\Necessary::standartReplace($this -> tmplt, $replace, $this -> html);
 			
 		}
 

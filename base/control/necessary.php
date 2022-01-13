@@ -1,4 +1,5 @@
 <?php
+namespace hoivater\dtbs\base\control;
 	// Класс содержит часто используемые методы на разных этапах
 	class Necessary
 	{

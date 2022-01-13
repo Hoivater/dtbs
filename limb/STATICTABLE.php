@@ -1,6 +1,6 @@
 <?php
-
-	require "base/dataBase.php";
+namespace hoivater\dtbs\limb;
+	// require "base/dataBase.php";
 	/**
 	 * Работа с бд для неизменяемой части страницы
 	 */

@@ -1,4 +1,7 @@
 <?php
+
+namespace hoivater\dtbs\base;
+
 class DataBase {
 
   private static $db = null; // Единственный экземпляр класса, чтобы не создавать множество подключений
@@ -14,7 +17,11 @@ class DataBase {
   /* private-конструктор, подключающийся к базе данных, устанавливающий локаль и кодировку соединения */
   private function __construct() {
     $ini_db = parse_ini_file("db.ini");
-    $this->mysqli = new mysqli($ini_db["host"], $ini_db["user"], $ini_db["password"], $ini_db["name_db"]);
+    $this->mysqli = new \mysqli($ini_db["host"], $ini_db["user"], $ini_db["password"], $ini_db["name_db"]);
+    if (mysqli_connect_errno()) {
+      printf("<h3>Не удалось подключиться: %s</h3>\n<h3>Проверьте настройки подключения к базе данных в файле: /base/db.ini</h3>", mysqli_connect_error());
+      exit();
+    }
     $this->mysqli->query("SET lc_time_names = 'ru_RU'");
     $this->mysqli->query("SET NAMES 'utf8'");
     }

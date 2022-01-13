@@ -4,7 +4,7 @@
 	<li><a href="/table/" class="nav-link px-2 link-dark">Таблицы</a></li>
 	<li><a href="/template/" class="nav-link px-2 link-dark">Шаблоны</a></li>
 	<li><a href="/import/" class="nav-link px-2 link-dark">Импорт</a></li>
-	<!-- <li><a href="/export/" class="nav-link px-2 link-dark">Экспорт</a></li> --!>
+	<!-- <li><a href="/export/" class="nav-link px-2 link-dark">Экспорт</a></li>  -->
 	<li><a href="/setting/" class="nav-link px-2 link-danger">Настройки</a></li>
 	<li><a href="/faqs/" class="nav-link px-2 link-dark">FAQs</a></li>
 	</ul>

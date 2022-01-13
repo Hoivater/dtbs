@@ -1,4 +1,7 @@
 <?php
+	namespace hoivater\dtbs\base\control;
+	
+	use hoivater\dtbs\base as Base;
 	/**
 	 * Класс который задействуется в различных проверках
 	 *
@@ -45,7 +48,7 @@
 			if($errors == "")
 			{
 				// затем проверяем на возможность фактического подключения
-				$connects = DataBase::getDB();
+				$connects = Base\DataBase::getDB();
 				$result_connect = $connects -> connect();
 				return $result_connect;
 			}

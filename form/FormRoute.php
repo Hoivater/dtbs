@@ -1,9 +1,6 @@
 <?php
-	require "form_base.php";
-	require "../base/control/necessary.php";
-	/**
-	 *
-	 */
+namespace hoivater\dtbs\form;
+require "../autoload.php";
 
 	class FormRoute extends FormBase
 	{
@@ -36,6 +33,15 @@
 		{
 			return $this -> result;
 		}
+	}
+
+	
+	if(isset($_POST))
+	{
+		$fRoute = new FormRoute($_POST["nameForm"], $_POST);//вход данных и их обработка
+		session_start();
+		$_SESSION["message"] = $fRoute -> result();
+		header('Location: '.$_SERVER['HTTP_REFERER']);
 	}
 
 ?>

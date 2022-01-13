@@ -1,16 +1,15 @@
 <?
-
-	require "import_table.php";
+	namespace hoivater\dtbs\limb;
+	
 	/**
 	 * формирование логики вывода страницы
 	 * Основные функции:
 	 * -проверка подключения к бд(этот статус выводится на всех страницах);
 	 * -проверка общих настроек;
 	 */
-	class ImportPage extends ImportTable
+	class ExportPage extends ExportTable
 	{
 		use tPage;
-
 		function __construct()
 		{
 			parent::__construct();
@@ -20,17 +19,15 @@
 			$this -> Page();
 		}
 
+
 		public function Page()
 		{
 			session_start();
 			if(isset($_SESSION["message"]))  unset($_SESSION['message']);
 			
 
-
-			$main_left = file_get_contents('tmplt_dtbs/main/main_left_history.tmplt');
-
-
-			$main_right = file_get_contents('tmplt_dtbs/main/main_right_import.tmplt');
+			$main_left = file_get_contents('tmplt_dtbs/main/main_left_history.tm');
+			$main_right = file_get_contents('tmplt_dtbs/main/main_right_export.tm');
 			
 
 
@@ -41,6 +38,5 @@
 			$this -> page = Necessary::standartReplace($this -> tmplt, $replace, $this -> html);
 			
 		}
-
 	}
 ?>

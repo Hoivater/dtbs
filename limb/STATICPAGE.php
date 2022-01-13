@@ -1,9 +1,7 @@
 <?php
-
-	require "STATICTABLE.php";
-	require "base/control/control.php";
-	require "base/control/necessary.php";
-	require "TRAITPAGE.php";
+	namespace hoivater\dtbs\limb;
+	
+	use hoivater\dtbs\base as Base; 
 	/**
 	 * Сборка неизменяемой части страницы
 	 */
@@ -17,13 +15,13 @@
 		{
 			session_start();
 			if(isset($_SESSION['connect'])) unset($_SESSION['connect']);
-			$html = file_get_contents("tmplt_dtbs/layouts/main.tmplt");
-			$this -> control = new Control();
+			$html = file_get_contents("tmplt_dtbs/layouts/main.tm");
+			$this -> control = new Base\control\Control();
 			$this -> html_static_page = $html;
 			$this -> controlConnectDB();
 			$this -> setting = parse_ini_file('setting.ini');
-			$menu_left = file_get_contents('tmplt_dtbs/menu/menu_left.tmplt');
-			$menu_right = file_get_contents('tmplt_dtbs/menu/menu_right.tmplt');
+			$menu_left = file_get_contents('tmplt_dtbs/menu/menu_left.tm');
+			$menu_right = file_get_contents('tmplt_dtbs/menu/menu_right.tm');
 
 			$connect = $_SESSION['connect'];
 
@@ -31,7 +29,7 @@
 			$replace = [$this -> setting['version'], $this -> setting['link'], $menu_left, $menu_right, $connect];
 
 
-			$this -> html_static_page = Necessary::standartReplace($tmplt, $replace, $html);
+			$this -> html_static_page = Base\control\Necessary::standartReplace($tmplt, $replace, $html);
 
 		}
 

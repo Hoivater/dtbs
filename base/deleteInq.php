@@ -1,6 +1,6 @@
 <?php
+namespace hoivater\dtbs\base;
 
-require	"dataBase.php";
 
 	class DeleteInq extends DataBase{
 		private $db;//объект базы данных

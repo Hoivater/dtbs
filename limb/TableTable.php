@@ -1,5 +1,7 @@
 <?
-	require "base/tableInq.php";
+	namespace hoivater\dtbs\limb;
+	use hoivater\dtbs\base as Base; 
+	
 	/**
 	 * работа с данными таблицы faqs
 	 * либо, как в этом случае, работа с файлами
@@ -32,13 +34,13 @@
 		function __construct()
 		{
 			// #1
-			$this -> main_left_table = file_get_contents('tmplt_dtbs/main/main_left_table.tmplt');
-			$this -> information_db = file_get_contents('tmplt_dtbs/main/main_left_table/information_db.tmplt');
+			$this -> main_left_table = file_get_contents('tmplt_dtbs/main/main_left_table.tm');
+			$this -> information_db = file_get_contents('tmplt_dtbs/main/main_left_table/information_db.tm');
 			// end#1
 			$this -> setting = parse_ini_file('setting.ini');
-			$this -> tableInq = new TableInq();
+			$this -> tableInq = new \hoivater\dtbs\base\TableInq();
 			#3
-			$this -> main_right_tables = file_get_contents('tmplt_dtbs/main/main_right_tables.tmplt');
+			$this -> main_right_tables = file_get_contents('tmplt_dtbs/main/main_right_tables.tm');
 			#3
 		}
 		//финишная сборка названия таблиц слева
@@ -53,11 +55,11 @@
 			
 
 
-			$information_db = Necessary::ReplaceRepeat($this -> tmplt_information_db, $this -> res, $this -> information_db);//
+			$information_db = Base\control\Necessary::ReplaceRepeat($this -> tmplt_information_db, $this -> res, $this -> information_db);//
 			
 
 
-			$this -> result_main_left_table = Necessary::standartReplace($this -> tmplt_main_left_table, [$name_db, $information_db], $this -> main_left_table);
+			$this -> result_main_left_table = Base\control\Necessary::standartReplace($this -> tmplt_main_left_table, [$name_db, $information_db], $this -> main_left_table);
 			return $this -> result_main_left_table;
 		}
 
@@ -73,7 +75,7 @@
 			// 	echo "<br />!!!</br>";
 			// }
 			#COLUMN_TYPE - , COLLATION_NAME - кодировка
-			$keys = file_get_contents('tmplt_dtbs/main/main_right_tables/key.tmplt');
+			$keys = file_get_contents('tmplt_dtbs/main/main_right_tables/key.tm');
 			$tmpltKeys = ['%key_two%'];
 			$count_array = count($data);
 
@@ -87,8 +89,8 @@
 			$code_tmplt = $this -> trBuilding($data, "code_tmplt");
 
 
-			$code_f_code_tmplt = $this -> trBuilding($data, "code_for_code_tmplt");
-			$this -> result_main_right_tables = Necessary::standartReplace($this -> tmplt_main_right_tables, [$name, $tr1, $tr2, $count_array, $code_dtbs, $code_tmplt, $code_f_code_tmplt], $this -> main_right_tables);
+			$code_f_code_tmplt = $this -> trBuilding($data, "code_for_code_tm");
+			$this -> result_main_right_tables = Base\control\Necessary::standartReplace($this -> tmplt_main_right_tables, [$name, $tr1, $tr2, $count_array, $code_dtbs, $code_tmplt, $code_f_code_tmplt], $this -> main_right_tables);
 
 			return $this -> result_main_right_tables;
 		}
@@ -96,7 +98,7 @@
 		private function trBuilding($data, $type)
 		{
 			$result = "";
-			$key_two = file_get_contents('tmplt_dtbs/main/main_right_tables/key_two.tmplt');
+			$key_two = file_get_contents('tmplt_dtbs/main/main_right_tables/key_two.tm');
 			$tmpltKeyTwo = ['%name%'];
 
 			if($type == 'type')
@@ -105,7 +107,7 @@
 				{
 					$name = "<b>".$one["COLUMN_NAME"]."</b>";
 
-					$result .= Necessary::standartReplace($tmpltKeyTwo, [$name], $key_two);
+					$result .= Base\control\Necessary::standartReplace($tmpltKeyTwo, [$name], $key_two);
 				}
 			}
 			elseif($type == 'value')
@@ -114,7 +116,7 @@
 				{
 					$name = $one["COLUMN_TYPE"];
 
-					$result .= Necessary::standartReplace($tmpltKeyTwo, [$name], $key_two);
+					$result .= Base\control\Necessary::standartReplace($tmpltKeyTwo, [$name], $key_two);
 				}
 			}
 			elseif($type == "code_tmplt")

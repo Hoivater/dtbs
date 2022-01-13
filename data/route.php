@@ -1,16 +1,7 @@
 <?php
+namespace hoivater\dtbs\data;
+use hoivater\dtbs\limb as Limb;
 
-require "limb/STATICPAGE.php";
-require	"limb/faqs_page.php";
-require	"limb/main_page.php";
-require	"limb/import_page.php";
-require	"limb/export_page.php";
-require	"limb/template_page.php";
-require	"limb/setting_page.php";
-require	"limb/table_page.php";
-/**
- *
- */
 class Route
 {
 	private $html;
@@ -33,44 +24,42 @@ class Route
 		{
 				if($route_arr[0] == "import")
 				{
-					$html = new ImportPage();
+					$html = new Limb\ImportPage();
 				}
 				elseif($route_arr[0] == "export")
 				{
-					$html = new ExportPage();
+					$html = new Limb\ExportPage();
 				}
 				elseif($route_arr[0] == "template")
 				{
-					$html = new TemplatePage();
+					$html = new Limb\TemplatePage();
 				}
 				elseif($route_arr[0] == "setting")
 				{
-					$html = new SettingPage();
+					$html = new Limb\SettingPage();
 				}
 				elseif($route_arr[0] == "table")
 				{
-					if(isset($route_arr[1])) $html = new TablePage($route_arr[1]);//открываем заданную
-					else $html = new TablePage(0);//открываем первую статью
+					if(isset($route_arr[1])) $html = new Limb\TablePage($route_arr[1]);//открываем заданную
+					else $html = new Limb\TablePage(0);//открываем первую статью
 				}
 				elseif($route_arr[0] == "faqs")
 				{
-					if(isset($route_arr[1])) $html = new FaqsPage($route_arr[1]);//открываем заданную
-					else $html = new FaqsPage(0);//открываем первую статью
+					if(isset($route_arr[1])) $html = new Limb\FaqsPage($route_arr[1]);//открываем заданную
+					else $html = new Limb\FaqsPage(0);//открываем первую статью
 				}
 				else
 				{
 					session_start();
 					$_SESSION['message'] = "Страница не найдена";
-					if(isset($route_arr[0])) $html = new MainPage($route_arr[0]);//открываем заданную
-					else $html = new MainPage(0);//открываем первую статью
+					if(isset($route_arr[0])) $html = new Limb\MainPage($route_arr[0]);//открываем заданную
+					else $html = new Limb\MainPage(0);//открываем первую статью
 				}
-
 		}
 		else
 		{
-
-			if(isset($route_arr[1])) $html = new MainPage($route_arr[1]);//открываем заданную
-			else $html = new MainPage(0);//открываем первую статью
+			if(isset($route_arr[1])) $html = new Limb\MainPage($route_arr[1]);//открываем заданную
+			else $html = new Limb\MainPage(0);//открываем первую статью
 		}
 		$this -> html = $html -> page;
 	}

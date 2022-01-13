@@ -1,6 +1,6 @@
 <?
-
-	require "table_table.php";
+namespace hoivater\dtbs\limb;
+use hoivater\dtbs\base as Base; 
 	/**
 	 * формирование логики вывода страницы
 	 * Основные функции:
@@ -45,7 +45,7 @@
 			}
 			$replace = [$main_left, $message, $main_right];
 
-			$this -> page = Necessary::standartReplace($this -> tmplt, $replace, $this -> html);
+			$this -> page = Base\control\Necessary::standartReplace($this -> tmplt, $replace, $this -> html);
 			
 		}
 

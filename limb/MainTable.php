@@ -1,5 +1,6 @@
 <?
-
+namespace hoivater\dtbs\limb;
+use hoivater\dtbs\base as Base; 
 	/**
 	 * работа с данными таблицы faqs
 	 * либо, как в этом случае, работа с файлами
@@ -20,7 +21,7 @@
 		public function MainRight($name_page)
 		{
 			$ad = "off_db/template/".$name_page.".ini";
-			$this -> main_right_commandline = file_get_contents('tmplt_dtbs/main/main_right_commandline.tmplt');
+			$this -> main_right_commandline = file_get_contents('tmplt_dtbs/main/main_right_commandline.tm');
 			if(file_exists($ad))
 			{
 				$files = file_get_contents($ad);
@@ -29,7 +30,7 @@
 			{
 				$files = "Шаблона ".$name_page." не существует.";
 			}
-			$this -> result_main_right_commandline = Necessary::ReplaceRepeat($this -> tmplt_main_right_commandline, [$files], $this -> main_right_commandline);
+			$this -> result_main_right_commandline = Base\control\Necessary::ReplaceRepeat($this -> tmplt_main_right_commandline, [$files], $this -> main_right_commandline);
 
 			return $this -> result_main_right_commandline;
 		}

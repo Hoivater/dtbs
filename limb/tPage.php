@@ -1,5 +1,5 @@
 <?php
-
+namespace hoivater\dtbs\limb;
 	trait tPage{
 		public $html;//заготовка
 		public $page;//результат работы класса

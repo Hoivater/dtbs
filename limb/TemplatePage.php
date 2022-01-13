@@ -1,48 +1,40 @@
 <?
-
-	require "main_table.php";
+namespace hoivater\dtbs\limb;
+use hoivater\dtbs\base as Base; 
 	/**
 	 * формирование логики вывода страницы
 	 * Основные функции:
 	 * -проверка подключения к бд(этот статус выводится на всех страницах);
 	 * -проверка общих настроек;
 	 */
-	class MainPage extends MainTable
+	class TemplatePage extends TemplateTable
 	{
-
-		
 		use tPage;
-
-		function __construct($name_page)
+		function __construct()
 		{
 			parent::__construct();
 			$staticPage = new StaticPage();//получение html кода статической части страницы
 
 			$this -> html = $staticPage -> getStaticPage();
-			$this -> Page($name_page);
+			$this -> Page();
 		}
 
-		public function Page($name_page)
+
+		public function Page()
 		{
 			session_start();
 			if(isset($_SESSION["message"]))  unset($_SESSION['message']);
+			$main_left = $this -> copyF_main_left_table_F();
+			$main_right = $this -> mainRight();
 			
-			if($name_page === 0)
-			{
-				$main_right = $this -> MainRight('standart');
-			}
-			else
-			{
-				$main_right = $this -> MainRight($name_page);
-			}
-			$main_left = file_get_contents('tmplt_dtbs/main/main_left_history.tmplt');
-			
+
+
 			if(isset($_SESSION["message"])) $message = $_SESSION["message"];
 			else $message = "";
 			
 			$replace = [$main_left, $message, $main_right];
-
-			$this -> page = Necessary::standartReplace($this -> tmplt, $replace, $this -> html);
+			$this -> page = Base\control\Necessary::standartReplace($this -> tmplt, $replace, $this -> html);
+			
 		}
 
 

@@ -1,15 +1,15 @@
 <?
-
+namespace hoivater\dtbs\limb;
 	/**
 	 * работа с данными таблицы faqs
 	 * либо, как в этом случае, работа с файлами
 	 */
-	class ExportTable
+	class ImportTable
 	{
 
 		function __construct()
 		{
-			// echo "Экземпляр класса ExportTable создан<br />";
+			// echo "Экземпляр класса ImportTable создан<br />";
 		}
 
 	}
