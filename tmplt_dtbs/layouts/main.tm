@@ -18,6 +18,7 @@
 
     <script src="https://kit.fontawesome.com/de9f65bcf0.js" crossorigin="anonymous"></script>
 		<script src="/js/copy.js"></script>
+		<script src="/js/redaction.js"></script>
 	<title>DTBS</title>
 
 </head>
