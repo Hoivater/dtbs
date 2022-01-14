@@ -19,10 +19,16 @@ namespace hoivater\dtbs\base;
 
 			return $table;
 		}
-		#получить названия присутсвующих колонок
-		public function structureTable($table_name)
+		#выполнение прямого SELECT
+		public function querySql($query)
 		{
-			$query = "SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE table_name='".$table_name."' ORDER BY `ORDINAL_POSITION`";
+			$table = $this -> db -> querySqlDb($query);
+			return $table;
+		}
+		#получить названия присутсвующих колонок
+		public function structureTable($table_name, $name_db)
+		{
+			$query = "SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE table_name='".$table_name."' AND table_schema='".$name_db."' ORDER BY `ORDINAL_POSITION`";
 			$table = $this -> db -> select($query);
 			return $table;
 		}

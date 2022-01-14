@@ -1,13 +1,13 @@
 <?
-	namespace hoivater\dtbs\limb;
-	use hoivater\dtbs\base as Base; 
+namespace hoivater\dtbs\limb\dtbs;
+use hoivater\dtbs\base as Base;
 	/**
 	 * формирование логики вывода страницы
 	 * Основные функции:
 	 * -проверка подключения к бд(этот статус выводится на всех страницах);
 	 * -проверка общих настроек;
 	 */
-	class ImportPage extends ImportTable
+	class SettingPage extends SettingTable
 	{
 		use tPage;
 
@@ -23,23 +23,24 @@
 		public function Page()
 		{
 			session_start();
-			if(isset($_SESSION["message"]))  unset($_SESSION['message']);
-			
+			if(isset($_SESSION["message"])){
+				if($_SESSION["message"] == 1)
+					$_SESSION["message"] = "Настройки успешно обновлены";
+				elseif($_SESSION["message"] == 0)
+					$_SESSION["message"] = "Произошла ошибка обновления, попробуйте еще раз или вручную";
+			}
+			$main_right = "";
 
-
-			$main_left = file_get_contents('tmplt_dtbs/main/main_left_history.tm');
-
-
-			$main_right = file_get_contents('tmplt_dtbs/main/main_right_import.tm');
-			
-
+			$main_left = $this -> main_left_settingF();
 
 			if(isset($_SESSION["message"])) $message = $_SESSION["message"];
 			else $message = "";
-			
+
+
+
 			$replace = [$main_left, $message, $main_right];
+
 			$this -> page = Base\control\Necessary::standartReplace($this -> tmplt, $replace, $this -> html);
-			
 		}
 
 	}

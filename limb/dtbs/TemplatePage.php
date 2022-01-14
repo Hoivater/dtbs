@@ -1,5 +1,5 @@
 <?
-namespace hoivater\dtbs\limb;
+namespace hoivater\dtbs\limb\dtbs;
 use hoivater\dtbs\base as Base; 
 	/**
 	 * формирование логики вывода страницы
@@ -7,66 +7,34 @@ use hoivater\dtbs\base as Base;
 	 * -проверка подключения к бд(этот статус выводится на всех страницах);
 	 * -проверка общих настроек;
 	 */
-	class TablePage extends TableTable
+	class TemplatePage extends TemplateTable
 	{
 		use tPage;
-		function __construct($name_page)
+		function __construct()
 		{
 			parent::__construct();
 			$staticPage = new StaticPage();//получение html кода статической части страницы
 
 			$this -> html = $staticPage -> getStaticPage();
-			$this -> Page($name_page);
+			$this -> Page();
 		}
 
 
-		public function Page($name_page)
+		public function Page()
 		{
 			session_start();
 			if(isset($_SESSION["message"]))  unset($_SESSION['message']);
-			
-
-			$main_left = $this -> main_left_table_F();
-
+			$main_left = $this -> copyF_main_left_table_F();
+			$main_right = $this -> mainRight();
 			
 
 
 			if(isset($_SESSION["message"])) $message = $_SESSION["message"];
 			else $message = "";
 			
-
-			if($name_page === 0)
-			{
-				$main_right = $this -> searchPage(0, "num");
-			}
-			else
-			{
-				$main_right = $this -> searchPage($name_page, "name");
-			}
 			$replace = [$main_left, $message, $main_right];
-
 			$this -> page = Base\control\Necessary::standartReplace($this -> tmplt, $replace, $this -> html);
 			
-		}
-
-		private function searchPage($name_page, $acc)
-		{
-			if($acc == "num")
-			{
-				#берем первую таблицу
-				if(isset($this -> res[0][0])){
-					$name = $this -> res[0][0];
-					return $this -> VisibleTable($name);
-				}
-				else
-					return "Таблица не найдена";
-
-			}
-			elseif($acc == "name")
-			{
-				#берем заданную таблицу
-				return $this -> VisibleTable($name_page);
-			}
 		}
 
 

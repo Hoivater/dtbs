@@ -155,5 +155,41 @@ namespace hoivater\dtbs\base\control;
 			 }
 			 return $result; 
 		}
+		public static function ReplaceSqlValue($ini, $num, $value, $name)#собираем SQL запрос для создания таблицы
+		{
+			$end = "";
+			foreach ($value as $keys) {
+				if($keys == "this_id")
+				{
+					$end = ", ".$ini["this_id_end"];
+				}
+			}
+			
+			$new_value = [];
+			for($i = 0; $i <= count($value)-1; $i++)
+			{
+				foreach ($ini as $key => $val) {
+					if($key == $value[$i])
+					{
+						$new_value[] = $val;
+					}
+				}
+			}
+
+			for($j = 0; $j <= count($new_value)-1; $j++)
+			{
+				$new_value[$j] = str_replace("%num%", $num[$j], $new_value[$j]);
+			}
+			
+			for($j = 0; $j <= count($value)-1; $j++)
+			{
+				$value[$j] = str_replace($value[$j], $new_value[$j], $value[$j]);
+				$value[$j] = "`".$name[$j]."` ".$value[$j];
+			}
+
+			$string_sql = implode(', ', $value).$end;
+			return $string_sql;
+
+		}
 	}
 ?>

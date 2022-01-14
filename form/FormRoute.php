@@ -1,5 +1,6 @@
 <?php
 namespace hoivater\dtbs\form;
+use hoivater\dtbs\worker as WorkerTable;
 require "../autoload.php";
 
 	class FormRoute extends FormBase
@@ -26,6 +27,12 @@ require "../autoload.php";
 			{
 				$this -> result = $this -> ImportBD();
 			}
+			elseif($name_form == 'newTable')
+			{
+				$worker_i = new WorkerTable\LogicTable($this -> data);
+				$this -> result = $worker_i -> CreateTable();//создаем таблицу
+				//создаем пользовательские классы
+			}
 		}
 
 
@@ -41,6 +48,7 @@ require "../autoload.php";
 		$fRoute = new FormRoute($_POST["nameForm"], $_POST);//вход данных и их обработка
 		session_start();
 		$_SESSION["message"] = $fRoute -> result();
+		
 		header('Location: '.$_SERVER['HTTP_REFERER']);
 	}
 

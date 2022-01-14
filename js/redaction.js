@@ -22,33 +22,33 @@ function insertTextZ( id, text, text2 ) {
 
 
 $(document).on('click', '.comInt', function (event) {
-  insertTextZ('comLine', " = 'INT()';", "");
+  insertTextZ('comLine', " = 'int()';", "");
 }); 
 
 
 $(document).on('click', '.comFloat', function (event) {
-  insertTextZ('comLine', " = 'FLOAT()';", "");
+  insertTextZ('comLine', " = 'float()';", "");
 }); 
 
 $(document).on('click', '.comDouble', function (event) {
-  insertTextZ('comLine', " = 'DOUBLE()';", "");
+  insertTextZ('comLine', " = 'double()';", "");
 }); 
 
 $(document).on('click', '.comBoolean', function (event) {
-  insertTextZ('comLine', " = 'BOOLEAN';", "");
+  insertTextZ('comLine', " = 'boolean';", "");
 }); 
 
 $(document).on('click', '.comChar', function (event) {
-  insertTextZ('comLine', " = 'CHAR';", "");
+  insertTextZ('comLine', " = 'char';", "");
 }); 
 
 $(document).on('click', '.comVarchar', function (event) {
-  insertTextZ('comLine', " = 'VARCHAR()';", "");
+  insertTextZ('comLine', " = 'varchar()';", "");
 }); 
 
 
 $(document).on('click', '.comText', function (event) {
-  insertTextZ('comLine', " = 'TEXT';", "");
+  insertTextZ('comLine', " = 'text';", "");
 }); 
 
 

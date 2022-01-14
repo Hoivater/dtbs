@@ -1,6 +1,6 @@
 <?php
 namespace hoivater\dtbs\data;
-use hoivater\dtbs\limb as Limb;
+use hoivater\dtbs\limb\dtbs as Limb;
 
 class Route
 {

@@ -43,6 +43,10 @@ class DataBase {
     
     return $this -> mysqli -> multi_query($query);
   }
+  public function querySqlDb($query)
+  {
+    return $this -> mysqli -> query($query);
+  }
   public function connect()
   {
     return $this -> mysqli -> ping();

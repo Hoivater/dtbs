@@ -1,16 +1,14 @@
 <?
-namespace hoivater\dtbs\limb;
-use hoivater\dtbs\base as Base; 
+	namespace hoivater\dtbs\limb\dtbs;
+	use hoivater\dtbs\base as Base;
 	/**
 	 * формирование логики вывода страницы
 	 * Основные функции:
 	 * -проверка подключения к бд(этот статус выводится на всех страницах);
 	 * -проверка общих настроек;
 	 */
-	class MainPage extends MainTable
+	class FaqsPage extends FaqsTable
 	{
-
-		
 		use tPage;
 
 		function __construct($name_page)
@@ -27,24 +25,27 @@ use hoivater\dtbs\base as Base;
 			session_start();
 			if(isset($_SESSION["message"]))  unset($_SESSION['message']);
 			
+
 			if($name_page === 0)
 			{
-				$main_right = $this -> MainRight('standart');
+				$main_right = $this -> searchPage("about_dtbs");
 			}
 			else
 			{
-				$main_right = $this -> MainRight($name_page);
+				$main_right = $this -> searchPage($name_page);
 			}
-			$main_left = file_get_contents('tmplt_dtbs/main/main_left_history.tm');
+
+			$main_left = file_get_contents('tmplt_dtbs/main/main_left_faq.tm');
 			
+
+
 			if(isset($_SESSION["message"])) $message = $_SESSION["message"];
 			else $message = "";
 			
 			$replace = [$main_left, $message, $main_right];
-
 			$this -> page = Base\control\Necessary::standartReplace($this -> tmplt, $replace, $this -> html);
+			
 		}
-
 
 	}
 ?>

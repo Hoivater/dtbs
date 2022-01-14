@@ -1,6 +1,6 @@
 <?
 
-namespace hoivater\dtbs\limb;
+namespace hoivater\dtbs\limb\dtbs;
 use hoivater\dtbs\base as Base; 
 	/**
 	 * работа с данными таблицы faqs
