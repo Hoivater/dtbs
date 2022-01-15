@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Jquery -->
-    <script src="/js/jq_v_3_6_0.js"></script>
+    <script src="/style/dtbs/js/jq_v_3_6_0.js"></script>
 
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -13,12 +13,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
     <!-- Fonts -->
-    <link rel="stylesheet" href="/css/dtbs.css">
+    <link rel="stylesheet" href="/style/dtbs/css/dtbs.css">
 
 
     <script src="https://kit.fontawesome.com/de9f65bcf0.js" crossorigin="anonymous"></script>
-		<script src="/js/copy.js"></script>
-		<script src="/js/redaction.js"></script>
+		<script src="/style/dtbs/js/copy.js"></script>
+		<script src="/style/dtbs/js/redaction.js"></script>
 	<title>DTBS</title>
 
 </head>

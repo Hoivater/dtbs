@@ -1,4 +1,4 @@
-<h4 class="text-start">Таблица: %name_db%</h4>
+<h4 class="text-start">Таблица: %name_db% <a href = '/delete_table/%name_db%'>Удалить таблицу</a></h4>
 <div class="table_template">
 <table class="table table-bordered">
 	<tr>

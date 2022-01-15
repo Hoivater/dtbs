@@ -1,6 +1,6 @@
 <?php
 namespace hoivater\dtbs\form;
-use hoivater\dtbs\worker as WorkerTable;
+use hoivater\dtbs\worker as Worker;
 require "../autoload.php";
 
 	class FormRoute extends FormBase
@@ -29,9 +29,15 @@ require "../autoload.php";
 			}
 			elseif($name_form == 'newTable')
 			{
-				$worker_i = new WorkerTable\LogicTable($this -> data);
-				$this -> result = $worker_i -> CreateTable();//создаем таблицу
-				//создаем пользовательские классы
+				$worker_i = new Worker\LogicTable($this -> data);
+				$this -> result .= $worker_i -> CreateTable();//создаем таблицу
+
+				if( $worker_i -> getResult() === true)
+				{
+					$parametr = $worker_i -> getParametr();//получаем массив данных [table_name, tmplt, replace]
+					$masterClass = new Worker\MasterClass($parametr[0], $parametr[1], $parametr[2], $parametr[3]);
+					$this -> result .= $masterClass -> addTablePageCl();#возвращает успех или нет
+				}
 			}
 		}
 

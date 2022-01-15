@@ -34,13 +34,13 @@
 		function __construct()
 		{
 			// #1
-			$this -> main_left_table = file_get_contents('tmplt_dtbs/main/main_left_table.tm');
-			$this -> information_db = file_get_contents('tmplt_dtbs/main/main_left_table/information_db.tm');
+			$this -> main_left_table = file_get_contents(__DIR__.'/../../tem/main/main_left_table.tm');
+			$this -> information_db = file_get_contents(__DIR__.'/../../tem/main/main_left_table/information_db.tm');
 			// end#1
 			$this -> setting = parse_ini_file('setting.ini');
 			$this -> tableInq = new Base\TableInq();
 			#3
-			$this -> main_right_tables = file_get_contents('tmplt_dtbs/main/main_right_tables.tm');
+			$this -> main_right_tables = file_get_contents(__DIR__.'/../../tem/main/main_right_tables.tm');
 			#3
 		}
 		//финишная сборка названия таблиц слева
@@ -66,7 +66,7 @@
 		#вывод таблицы
 		public function VisibleTable($name)
 		{
-			$ini = parse_ini_file('base/db.ini');
+			$ini = parse_ini_file(__DIR__.'/../../base/db.ini');
 			$name_db = $ini["name_db"];
 			// echo $name;
 			$data = $this -> tableInq -> structureTable($name, $name_db);
@@ -77,7 +77,7 @@
 			// 	echo "<br />!!!</br>";
 			// }
 			#COLUMN_TYPE - , COLLATION_NAME - кодировка
-			$keys = file_get_contents('tmplt_dtbs/main/main_right_tables/key.tm');
+			$keys = file_get_contents(__DIR__.'/../../tem/main/main_right_tables/key.tm');
 			$tmpltKeys = ['%key_two%'];
 			$count_array = count($data);
 
@@ -101,7 +101,7 @@
 		private function trBuilding($data, $type)
 		{
 			$result = "";
-			$key_two = file_get_contents('tmplt_dtbs/main/main_right_tables/key_two.tm');
+			$key_two = file_get_contents(__DIR__.'/../../tem/main/main_right_tables/key_two.tm');
 			$tmpltKeyTwo = ['%name%'];
 
 			if($type == 'type')

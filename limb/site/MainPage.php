@@ -1,16 +1,17 @@
 <?
-	namespace hoivater\dtbs\limb\dtbs;
-	
+	namespace hoivater\dtbs\limb\site;
+	use hoivater\dtbs\base as Base;#для работы с валидатором и бд
 	/**
 	 * формирование логики вывода страницы
 	 * Основные функции:
 	 * -проверка подключения к бд(этот статус выводится на всех страницах);
 	 * -проверка общих настроек;
 	 */
-	class ExportPage extends ExportTable
+	class MainPage extends MainTable
 	{
 		use tPage;
-		function __construct()
+
+		public function __construct()
 		{
 			parent::__construct();
 			$staticPage = new StaticPage();//получение html кода статической части страницы
@@ -18,25 +19,16 @@
 			$this -> html = $staticPage -> getStaticPage();
 			$this -> Page();
 		}
-
-
+		#метод для сборки страницы
+		#вся работа с базой данных идет в родительском классе
 		public function Page()
 		{
-			session_start();
-			if(isset($_SESSION["message"]))  unset($_SESSION['message']);
-			
-
-			$main_left = file_get_contents('tmplt_dtbs/main/main_left_history.tm');
-			$main_right = file_get_contents('tmplt_dtbs/main/main_right_export.tm');
-			
+			$this -> page = $this -> html;
 
 
-			if(isset($_SESSION["message"])) $message = $_SESSION["message"];
-			else $message = "";
-			
-			$replace = [$main_left, $message, $main_right];
-			$this -> page = Necessary::standartReplace($this -> tmplt, $replace, $this -> html);
-			
+
+
 		}
+
 	}
 ?>

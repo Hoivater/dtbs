@@ -1,0 +1,16 @@
+body{
+	background: #DFEFFF;
+
+}
+.DTBS{
+	/*background: white;*/
+	margin: 40vh 40vw;
+}
+.main{
+	/*background: yellow;*/
+	height: 150vh;
+}
+.DTBS h1{
+	color: red;
+	font-size: 400%;
+}

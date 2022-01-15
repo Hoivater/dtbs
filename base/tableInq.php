@@ -19,6 +19,14 @@ namespace hoivater\dtbs\base;
 
 			return $table;
 		}
+		#получить названия присутсвующих таблиц
+		public function dropTable($table_name)
+		{
+			$query = "DROP TABLE `".$table_name."`";
+			$table = $this -> db -> querySqlDb($query);
+
+			return $table;
+		}
 		#выполнение прямого SELECT
 		public function querySql($query)
 		{

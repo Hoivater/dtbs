@@ -26,11 +26,10 @@
 			if(isset($_SESSION["message"]))  unset($_SESSION['message']);
 			
 
+			$tt = new TableTable();
+			$main_left = $tt -> main_left_table_F();
 
-			$main_left = file_get_contents('tmplt_dtbs/main/main_left_history.tm');
-
-
-			$main_right = file_get_contents('tmplt_dtbs/main/main_right_import.tm');
+			$main_right = file_get_contents(__DIR__.'/../../tem/main/main_right_import.tm');
 			
 
 

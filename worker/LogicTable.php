@@ -15,6 +15,7 @@
 		private $fields_array;
 		private $fields_parametr;
 		
+		private $results; //хранит результат создания таблицы
 		//в конструкторе записываем полученные данные, в функциях выполянем основное назначение 
 		function __construct($data)
 		{
@@ -58,14 +59,19 @@
 			$tnplt_history = ['%table_name%', '%fields_history%'];
 			
 			$result = Control\Control::SecurityFields($this -> fields_parametr);//проверка на верность наличия уточняющей длины
+
 			if($result[0] === true)#проверка пройдена, создаем таблицу, пишем логи
 			{
 				$fields = $this -> forCreateSqlFields($this -> fields_parametr);
 				$replace = [$this -> name_db, $this -> table_name, $fields];
+
 				$result_sql = Control\Necessary::standartReplace($tmplt_sql, $replace, $query);
 				$tableInq = new Base\TableInq();
 				// echo $result_sql;
+
 				$result = $tableInq -> querySql($result_sql);
+
+				$this -> results = $result;
 				if($result === true)
 				{
 					return "Таблица ".$this -> table_name." создана.";
@@ -80,7 +86,31 @@
 				return $result[0];
 			}
 		}
-
+		public function getParametr()
+		{
+			#функция отдает параметры только что, созданной таблицы
+			$tmplt = "";
+			$replace = "";
+			$for_table_key = "";
+			for ($i=0; $i <= count($this -> fields_array)-1; $i++) {
+				if($i != count($this -> fields_array)-1){
+					$tmplt .= "'%".$this -> fields_array[$i]."%', ";
+					$replace .= "$".$this -> fields_array[$i].", ";
+					$for_table_key .= "`".$this -> fields_array[$i]."`, ";
+				}
+				else{
+					$tmplt .= "'%".$this -> fields_array[$i]."%'";
+					$replace .= "$".$this -> fields_array[$i];
+					$for_table_key .= "`".$this -> fields_array[$i]."`";
+				}
+			}
+			//[название таблицы(оно же название класса), ]
+			return [$this -> table_name, $tmplt, $replace, $for_table_key];
+		}
+		public function getResult()
+		{
+			return $this -> results;
+		}
 		private function forCreateSqlFields($f)
 		{
 			$sql_value = parse_ini_file(__DIR__."/../off_db/command/sql_value.ini");

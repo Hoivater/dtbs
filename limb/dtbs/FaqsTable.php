@@ -25,7 +25,7 @@
 				$result = "Указанный файл не был найден";
 			}
 
-			$main_right = file_get_contents('tmplt_dtbs/main/main_right_faqs.tm');
+			$main_right = file_get_contents(__DIR__.'/../../tem/main/main_right_faqs.tm');
 			$fin = Base\control\Necessary::standartReplace(['%text%'], [$result], $main_right);
 			return $fin;
 		}

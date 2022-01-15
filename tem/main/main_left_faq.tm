@@ -9,10 +9,12 @@
 
   <a href="/faqs/redaction_table/" class="list-group-item list-group-item-action">Редактирование таблиц</a>
 
-  <a href="/faqs/history/" class="list-group-item list-group-item-action">История изменений</a>
-
   <a href="/faqs/import/" class="list-group-item list-group-item-action">Импорт бд</a>
 
-  <a href="/faqs/export/" class="list-group-item list-group-item-action">Экспорт бд</a>
+  <a href="/faqs/work_with_database/" class="list-group-item list-group-item-action">Работа с базой данных</a>
+
+  <a href="/faqs/new_project/" class="list-group-item list-group-item-action">Создание своего проекта</a>
+
+
 
 </div>

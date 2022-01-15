@@ -35,7 +35,8 @@ use hoivater\dtbs\base as Base;
 			{
 				$main_right = $this -> MainRight($name_page);
 			}
-			$main_left = file_get_contents('tmplt_dtbs/main/main_left_history.tm');
+			$tt = new TableTable();
+			$main_left = $tt -> main_left_table_F();
 			
 			if(isset($_SESSION["message"])) $message = $_SESSION["message"];
 			else $message = "";

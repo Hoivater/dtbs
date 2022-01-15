@@ -1,5 +1,5 @@
 <?php
-	namespace hoivater\dtbs\limb\dtbs;
+	namespace hoivater\dtbs\limb\site;
 	
 	use hoivater\dtbs\base as Base; 
 	/**
@@ -15,21 +15,17 @@
 		{
 			session_start();
 			if(isset($_SESSION['connect'])) unset($_SESSION['connect']);
-			$html = file_get_contents(__DIR__."/../../tem/layouts/main.tm");
+			$html = file_get_contents(__DIR__."/../../tem_public/layouts/main.tm");
+
 			$this -> control = new Base\control\Control();
 			$this -> html_static_page = $html;
 			$this -> controlConnectDB();
+
 			$this -> setting = parse_ini_file('setting.ini');
-			$menu_left = file_get_contents(__DIR__.'/../../tem/menu/menu_left.tm');
-			$menu_right = file_get_contents(__DIR__.'/../../tem/menu/menu_right.tm');
 
 			$connect = $_SESSION['connect'];
 
-			$tmplt = ['%version%', '%link%', '%menu_left%', '%menu_right%', '%connect%'];
-			$replace = [$this -> setting['version'], $this -> setting['link'], $menu_left, $menu_right, $connect];
-
-
-			$this -> html_static_page = Base\control\Necessary::standartReplace($tmplt, $replace, $html);
+			$this -> html_static_page = $html;
 
 		}
 

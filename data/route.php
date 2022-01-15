@@ -1,6 +1,8 @@
 <?php
 namespace hoivater\dtbs\data;
 use hoivater\dtbs\limb\dtbs as Limb;
+use hoivater\dtbs\limb\site as LimbSite;
+use hoivater\dtbs\base\control as Control;
 
 class Route
 {
@@ -13,9 +15,17 @@ class Route
 		$new_arr = array_diff($arr, array(''));
 		$this -> route_array = array_values($new_arr);
 
-		$this -> routeLimb();//ищем в "лимбе" адрес и обрабатываем
+		// $this -> routeLimb();//ищем в "лимбе" адрес и обрабатываем
+		$this -> routePublicLimb(); #ваш проект
 	}
 
+	private function routePublicLimb()
+	{
+		$route_arr = $this -> route_array;
+
+		$html = new LimbSite\MainPage();
+		$this -> html = $html -> page;
+	}
 	private function routeLimb()
 	{
 		$route_arr = $this -> route_array;
@@ -43,6 +53,14 @@ class Route
 					if(isset($route_arr[1])) $html = new Limb\TablePage($route_arr[1]);//открываем заданную
 					else $html = new Limb\TablePage(0);//открываем первую статью
 				}
+				elseif($route_arr[0] == "delete_table")
+				{
+					if(isset($route_arr[1]))
+					{
+						Control\Necessary::delete_table($route_arr[1]);
+					}
+					header('Location: '.$_SERVER['HTTP_REFERER']);//возвращаем наместо
+				}
 				elseif($route_arr[0] == "faqs")
 				{
 					if(isset($route_arr[1])) $html = new Limb\FaqsPage($route_arr[1]);//открываем заданную
@@ -55,6 +73,7 @@ class Route
 					if(isset($route_arr[0])) $html = new Limb\MainPage($route_arr[0]);//открываем заданную
 					else $html = new Limb\MainPage(0);//открываем первую статью
 				}
+
 		}
 		else
 		{

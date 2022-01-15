@@ -22,8 +22,8 @@ use hoivater\dtbs\base as Base;
 
 		function __construct()
 		{
-			$this -> main_right_table = file_get_contents('tmplt_dtbs/main/main_right_table.tm');
-			$this -> table = file_get_contents('tmplt_dtbs/main/main_right_table/table.tm');
+			$this -> main_right_table = file_get_contents(__DIR__.'/../../tem/main/main_right_table.tm');
+			$this -> table = file_get_contents(__DIR__.'/../../tem/main/main_right_table/table.tm');
 		}
 
 		public function copyF_main_left_table_F()
@@ -35,10 +35,10 @@ use hoivater\dtbs\base as Base;
 		public function mainRight(){
 			#2
 			//$template - название файла с шаблоном в off_db/template/...
-			$templates = Base\control\Necessary::ScanDirF('off_db/template');
+			$templates = Base\control\Necessary::ScanDirF(__DIR__.'/../../off_db/template');
 			$code_ini_array = [];
 			foreach ($templates as $key) {
-				$code_ini_array[] = parse_ini_file("off_db/template/".$key);
+				$code_ini_array[] = parse_ini_file(__DIR__."/../../off_db/template/".$key);
 			}
 
 			$template = $this ->trBuilding($code_ini_array);

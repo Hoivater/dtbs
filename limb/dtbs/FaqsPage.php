@@ -35,7 +35,7 @@
 				$main_right = $this -> searchPage($name_page);
 			}
 
-			$main_left = file_get_contents('tmplt_dtbs/main/main_left_faq.tm');
+			$main_left = file_get_contents(__DIR__.'/../../tem/main/main_left_faq.tm');
 			
 
 

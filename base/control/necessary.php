@@ -1,5 +1,6 @@
 <?php
 namespace hoivater\dtbs\base\control;
+use hoivater\dtbs\base as Base;
 	// Класс содержит часто используемые методы на разных этапах
 	class Necessary
 	{
@@ -106,22 +107,7 @@ namespace hoivater\dtbs\base\control;
 				}
 				else
 				{
-					// if(substr($key, -1) == ";")
-					// {
-					// 	$key = substr($key, 0, -1);
-					// 	$t = true;
-					// }
-					// $result .= $key."\n<br />";
-					// if($t === true)
-					// {
-					// 	//$key = substr($key, 0, -1);
-					// 	//$key .= '"';
-					// 	$result_array[] = $result;
-					// 	$result = '';
-					// 	$t = false;
-					// }
-					//
-					//
+
 					$result .= $key."\n<br />";
 					if(substr($key, -1) == ";")
 					{
@@ -138,7 +124,11 @@ namespace hoivater\dtbs\base\control;
 			}
 			return $result_array;
 		}
-
+		public static function delete_table($name_table)
+		{
+			$tq = new Base\TableInq();
+			$tq -> dropTable($name_table);
+		}
 		public static function ScanDirF($folder)
 		{
 			$result = [];

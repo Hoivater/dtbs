@@ -17,8 +17,8 @@ use hoivater\dtbs\base as Base;
 		function __construct()
 		{
 			// #1
-			$this -> main_left_setting = file_get_contents('tmplt_dtbs/main/main_left_setting.tm');
-			$this -> inc_main_left_setting = parse_ini_file('base/db.ini');
+			$this -> main_left_setting = file_get_contents(__DIR__.'/../../tem/main/main_left_setting.tm');
+			$this -> inc_main_left_setting = parse_ini_file(__DIR__.'/../../base/db.ini');
 			// end#1
 		}
 
