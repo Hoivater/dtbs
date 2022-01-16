@@ -12,10 +12,12 @@
 	</tr>
 	<tr>
 		<td colspan = "%count_array%">
-			<form name = 'redaction_table' action = '/form/form_controller.php' method = 'post'>
-				<textarea class="commandline" rows="10" id = 't_code_dtbs'>%code_dtbs%</textarea>
+			<p>При изменении таблицы меняются классы, рекомендуется их переименовать, либо перенести в другое место перед изменением таблицы.</p>
+			<form name = 'redaction_table' action = '/form/FormRoute.php' method = 'post'>
+				<textarea class="commandline" rows="10" id = 't_code_dtbs' name = 'code_user'>%code_dtbs%</textarea>
+				<input type="text" class="hidden" value = "%name_db%" name = "name_table">
+			<button type = 'submit' value = 'redTable' name = 'nameForm' class='m-3 btn btn-primary'>Сохранить внесенные изменения</button>
 			</form>
-			<button type = 'submit' value = 'RedactionTable' name = 'formName' class='m-3 btn btn-primary'>Сохранить внесенные изменения</button>
 		</td>
 	</tr>
 	<tr>

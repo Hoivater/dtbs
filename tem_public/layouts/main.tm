@@ -16,21 +16,23 @@
     <link rel="stylesheet" href="/style/public/css/dtbs.css">
 
 
+
     <script src="https://kit.fontawesome.com/de9f65bcf0.js" crossorigin="anonymous"></script>
+
+    <link rel="shortcut icon" href="/favicon.svg" type="image/x-icon">
 	<title>DTBS</title>
 
 </head>
 <body>
-	<div class="container main">
-		<div class = "DTBS">
-				<h1 class='text-center'>DTBS</h1>
-				<h4 class='text-center'>версия 1.0</h4>
+	<div class="container-fluid main p-0 m-0">
+
+
+		<div class = "page" id = "one">
+			<div class="names"><h1 class="text-center pt-3"><span>_DTBS_</span> VERSION 1.0</h1></div>
 		</div>
-		<div class = "info">
-			<h3 class="text-center">Что это? </h3>
-				<p>
-					DTBS представляет собой полноценное веб-приложение, которое можно в случае необходимости удалить без вреда для созданных баз данных.
-				</p>
+
+		<div class = "page p-3" id = "two">
+			<h3 class="text-center pt-3">Что это? </h3>
 				<p>
 					Этот модуль, DTBS, в первой своей итерации, предоставляет следующие возможности:
 				</p>
@@ -45,8 +47,9 @@
 						При подключении класса Dtbs в ваш проект, возможна работа с вашей базой данных, на уровне всех необходимых операций: получение , изменение, удаление и конечно добавление данных.
 					</li>
 				</ul>
-
+				<p>Для перевода DTBS в рабочее состояние необходимо в файле base/db.ini выполнить подключение к базе данных, и сменить метод data/route.php на routeLimb(), вместо routePublicLimb().</p>
 		</div>
+
 	</div>
 </body>
 <script>

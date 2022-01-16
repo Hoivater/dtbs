@@ -29,9 +29,9 @@
 			#достаем name_db
 			$ini_db = parse_ini_file(__DIR__.'/../base/db.ini');
 			$this -> name_db = $ini_db["name_db"];
-
-			$this -> table_name = $commands_array["table_name"];
-
+			$table_name = str_replace($ini_db["fornameDB"], "", $commands_array["table_name"]);
+			$this -> table_name = $ini_db["fornameDB"].$table_name;
+			// echo $this -> table_name;
 
 			foreach($commands_array as $key => $value)
 			{

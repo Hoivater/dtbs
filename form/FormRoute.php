@@ -1,6 +1,7 @@
 <?php
 namespace hoivater\dtbs\form;
 use hoivater\dtbs\worker as Worker;
+use hoivater\dtbs\base\control as Control;
 require "../autoload.php";
 
 	class FormRoute extends FormBase
@@ -32,6 +33,20 @@ require "../autoload.php";
 				$worker_i = new Worker\LogicTable($this -> data);
 				$this -> result .= $worker_i -> CreateTable();//создаем таблицу
 
+				if( $worker_i -> getResult() === true)
+				{
+					$parametr = $worker_i -> getParametr();//получаем массив данных [table_name, tmplt, replace]
+					$masterClass = new Worker\MasterClass($parametr[0], $parametr[1], $parametr[2], $parametr[3]);
+					$this -> result .= $masterClass -> addTablePageCl();#возвращает успех или нет
+				}
+			}
+			elseif($name_form == 'redTable')
+			{
+				$worker_i = new Worker\LogicTable($this -> data);
+				#копируем данные из таблицы
+				Control\Necessary::delete_table($this -> data["name_table"]);
+
+				$this -> result .= $worker_i -> CreateTable();//создаем таблицу
 				if( $worker_i -> getResult() === true)
 				{
 					$parametr = $worker_i -> getParametr();//получаем массив данных [table_name, tmplt, replace]

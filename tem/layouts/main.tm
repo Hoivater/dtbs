@@ -19,6 +19,7 @@
     <script src="https://kit.fontawesome.com/de9f65bcf0.js" crossorigin="anonymous"></script>
 		<script src="/style/dtbs/js/copy.js"></script>
 		<script src="/style/dtbs/js/redaction.js"></script>
+    <link rel="shortcut icon" href="/favicon.svg" type="image/x-icon">
 	<title>DTBS</title>
 
 </head>

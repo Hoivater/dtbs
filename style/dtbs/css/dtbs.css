@@ -63,6 +63,9 @@ textarea.commandline{
 	border-radius: 10px;
 	padding: 10px;
 }
+input.hidden{
+	display: none;
+}
 /*текстовое оформление*/
 .f_n_table{
 	color: #AC78C7;

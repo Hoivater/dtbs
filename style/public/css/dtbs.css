@@ -1,16 +1,19 @@
 body{
 	background: #DFEFFF;
-
 }
-.DTBS{
-	/*background: white;*/
-	margin: 40vh 40vw;
+.page{
+	height: 100vh;
 }
-.main{
-	/*background: yellow;*/
-	height: 150vh;
+#one{
+	background-image: url(http://dtbs/resourse/visible/fon.png); /* Путь к фоновому рисунку */
+	background-position: center center; /* Положение фона */
+    background-repeat: no-repeat; /* Отменяем повторение фона */
+    background-size: 250px;
 }
-.DTBS h1{
+#one h1 span{
 	color: red;
-	font-size: 400%;
+}
+#two{
+	background: #303841;
+	color: #D7DDE8;
 }
