@@ -154,7 +154,11 @@
 			}
 			elseif($type == "code_dtbs")
 			{
-				$result = "table_name = '".$data[0]['TABLE_NAME']."';\n";
+				if(isset($data[0]['TABLE_NAME']))
+					$t = $data[0]['TABLE_NAME'];
+				else
+					$t = "Таблицы несуществует";
+				$result = "table_name = '".$t."';\n";
 				foreach($data as $one)
 				{
 					$name = $one["COLUMN_TYPE"];
