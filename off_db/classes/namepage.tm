@@ -1,5 +1,5 @@
 <?
-	namespace hoivater\dtbs\limb\public;
+	namespace hoivater\dtbs\limb\site;
 	use hoivater\dtbs\base as Base;#для работы с валидатором и бд
 	/**
 	 * формирование логики вывода страницы
